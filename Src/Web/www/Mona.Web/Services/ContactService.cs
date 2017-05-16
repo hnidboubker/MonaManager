@@ -9,7 +9,7 @@ namespace Mona.Web.Services
 {
     public interface IContactService
     {
-       IQueryable<Contact> GetAll();
+        IQueryable<Contact> GetAll();
         Task<List<Contact>> GetAllAsync();
         Contact FindById(long id);
         Task<Contact> FindByIdAsync(long id);
