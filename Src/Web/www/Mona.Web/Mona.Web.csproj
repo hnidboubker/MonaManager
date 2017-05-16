@@ -255,6 +255,7 @@
     <Compile Include="Infrastructure\IEntity.cs" />
     <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Infrastructure\Service.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.Designer.cs">
       <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
