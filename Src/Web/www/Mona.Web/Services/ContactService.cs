@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Mona.Web.Contracts;
+﻿using Mona.Web.Contracts;
 using Mona.Web.Entities;
 using Mona.Web.Infrastructure;
 
@@ -28,7 +25,7 @@ namespace Mona.Web.Services
         protected new IContactRepository Repository;
 
         public ContactService(IUnitOfWork unitOfWork, IContactRepository repository)
-            :base(unitOfWork)
+            : base(unitOfWork)
         {
             base.Repository = Repository = repository;
         }

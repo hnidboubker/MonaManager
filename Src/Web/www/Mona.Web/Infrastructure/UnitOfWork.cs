@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Threading.Tasks;
 using Mona.Web.Data;
 
 namespace Mona.Web.Infrastructure
@@ -31,14 +27,14 @@ namespace Mona.Web.Infrastructure
 
         public virtual int Commit()
         {
-            var result = DataContext.Commit();
+            int result = DataContext.Commit();
             return result;
         }
 
         public virtual async Task<int> CommitAsync()
         {
-            var result = await DataContext.CommitAsync();
+            int result = await DataContext.CommitAsync();
             return result;
-        } 
+        }
     }
 }

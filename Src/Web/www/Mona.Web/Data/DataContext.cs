@@ -13,20 +13,19 @@ namespace Mona.Web.Data
     public class DataContext<TContext> : DbContext, IDataContext where TContext : DbContext
     {
         public DataContext(string nameOrConnectionString)
-            :base(nameOrConnectionString)
+            : base(nameOrConnectionString)
         {
-            
         }
 
         public virtual IDbSet<T> DbSet<T>() where T : class
         {
-            var result = Set<T>();
+            DbSet<T> result = Set<T>();
             return result;
         }
 
         public new virtual DbEntityEntry Entry<T>(T entity) where T : class
         {
-            var result = base.Entry(entity);
+            DbEntityEntry<T> result = base.Entry(entity);
             return result;
         }
 
@@ -77,7 +76,6 @@ namespace Mona.Web.Data
 
     public interface IDataContext
     {
-        
         DbChangeTracker ChangeTracker { get; }
         DbContextConfiguration Configuration { get; }
         IDbSet<T> DbSet<T>() where T : class;

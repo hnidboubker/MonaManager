@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -33,75 +32,75 @@ namespace Mona.Web.Infrastructure
 
         public virtual IQueryable<T> GetAll()
         {
-            var result   = Repository.GetAll();
+            IQueryable<T> result = Repository.GetAll();
             return result;
         }
-       
+
 
         public virtual async Task<List<T>> GetAllAsync()
         {
-            var result = await Repository.GetAllAsync();
+            List<T> result = await Repository.GetAllAsync();
             return result;
         }
 
         public virtual T FindById(TKey id)
         {
-            var result = Repository.FindById(id);
+            T result = Repository.FindById(id);
             return result;
         }
-       
+
 
         public virtual async Task<T> FindByIdAsync(TKey id)
         {
-            var result = await Repository.FindByIdAsync(id);
+            T result = await Repository.FindByIdAsync(id);
             return result;
         }
 
         public virtual T Insert(T entity)
         {
-            var result = Repository.Insert(entity);
+            T result = Repository.Insert(entity);
             return result;
         }
 
         public virtual async Task<T> InsertAsync(T entity)
         {
-            var result = await Repository.InsertAsync(entity);
+            T result = await Repository.InsertAsync(entity);
             return result;
         }
 
         public virtual T Update(T entity)
         {
-            var result = Repository.Update(entity);
+            T result = Repository.Update(entity);
             return result;
         }
 
         public virtual async Task<T> UpdateAsync(T entity)
         {
-            var result = await Repository.UpdateAsync(entity);
+            T result = await Repository.UpdateAsync(entity);
             return result;
         }
 
         public virtual T Remove(T entity)
         {
-            var result = Repository.Remove(entity);
+            T result = Repository.Remove(entity);
             return result;
         }
 
         public virtual async Task<T> RemoveAsync(T entity)
         {
-            var result = await Repository.RemoveAsync(entity);
+            T result = await Repository.RemoveAsync(entity);
             return result;
         }
 
         public virtual int Commit()
         {
-            var result = UnitOfWork.Commit();
+            int result = UnitOfWork.Commit();
             return result;
         }
 
         public virtual Task<int> CommitAsync()
         {
-            var result = UnitOfWork.CommitAsync();
+            Task<int> result = UnitOfWork.CommitAsync();
             return result;
         }
     }

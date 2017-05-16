@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using Mona.Web.Data;
 
 namespace Mona.Web.Infrastructure
 {
@@ -22,7 +19,7 @@ namespace Mona.Web.Infrastructure
         //}
 
         // Todo Move this to Context Factory
-        public EntityRepository(IEntityContextFactory entityContextFactory) 
+        public EntityRepository(IEntityContextFactory entityContextFactory)
             : base(entityContextFactory)
         {
             //DbSet = DataContext.DbSet<T>();
@@ -33,7 +30,6 @@ namespace Mona.Web.Infrastructure
         //    get { return Context ?? (Context = new DefaultContext()); }
         //}
 
-        
 
         //public override T Insert(T entity)
         //{
@@ -78,7 +74,7 @@ namespace Mona.Web.Infrastructure
 
         public override void Dispose()
         {
-           Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
@@ -91,7 +87,6 @@ namespace Mona.Web.Infrastructure
                     DataContext.Dispose();
                 }
             }
-
         }
     }
 }

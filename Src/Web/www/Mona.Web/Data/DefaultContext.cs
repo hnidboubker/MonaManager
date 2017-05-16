@@ -1,8 +1,4 @@
 ﻿using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Data.Entity.Validation;
-using System.Threading.Tasks;
-using Mona.Web.Common;
 using Mona.Web.Entities;
 
 namespace Mona.Web.Data
@@ -28,7 +24,5 @@ namespace Mona.Web.Data
                 .ToTable("Contact")
                 .HasKey(o => o.Id);
         }
-
-        
     }
 }
