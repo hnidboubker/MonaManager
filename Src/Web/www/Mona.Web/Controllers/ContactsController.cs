@@ -73,24 +73,37 @@ namespace Mona.Web.Controllers
         // GET: Contacts/Create
         public ActionResult Create()
         {
-            return View();
+            var model = new ContactAddOrUpdateModel();
+            return View(model);
         }
 
         // POST: Contacts/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Code,Picture,ContactType,FirstName,LastName,PhoneNumber,Email,TwiterAddress,FaceBookAddress")] Contact contact)
+        public async Task<ActionResult> Create(ContactAddOrUpdateModel model)
         {
             if (ModelState.IsValid)
             {
+                var contact = new Contact()
+                {
+                  Id   =  new long(), 
+                  Code = model.Code,
+                  ContactType = model.ContactType,
+                  Picture = model.Picture,
+                  FirstName = model.FirstName,
+                  LastName = model.LastName,
+                  PhoneNumber = model.PhoneNumber,
+                  Email = model.Email,
+                  TwiterAddress = model.TwiterAddress,
+                  FaceBookAddress = model.FaceBookAddress
+
+                };
                 db.Contacts.Add(contact);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(contact);
+            return View(model);
         }
 
         // GET: Contacts/Edit/5
