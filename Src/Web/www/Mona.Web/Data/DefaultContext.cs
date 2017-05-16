@@ -7,7 +7,7 @@ using Mona.Web.Entities;
 
 namespace Mona.Web.Data
 {
-    public class DefaultContext : DbContext
+    public class DefaultContext : EntityContext
     {
         public DefaultContext() : base("Default")
         {
