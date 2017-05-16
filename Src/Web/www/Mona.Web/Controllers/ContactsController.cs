@@ -35,7 +35,7 @@ namespace Mona.Web.Controllers
                     model.Add(builder);
                 }
             }
-            return View(model);
+            return View(model);                                  
         }
 
         // GET: Contacts/Details/5
