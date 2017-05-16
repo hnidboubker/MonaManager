@@ -35,7 +35,7 @@ namespace Mona.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
           
-            var model = await ContactProvider.GetContact(id);
+            var model = await ContactProvider.GetContactDetails(id);
 
             if (model == null)
             {
@@ -90,13 +90,8 @@ namespace Mona.Web.Controllers
                     file.SaveAs(Path.Combine(savePath, fileName));
                     model.Picture = fileName;
                 }
-                var contact = new Contact();
                
-                if (file != null)
-                {
-                    contact.Picture = model.Picture;
-                }
-                await ContactProvider.CreateContact(model);
+                await ContactProvider.CreateContact(model, file);
                 return RedirectToAction("Index");
             }
 
@@ -155,13 +150,8 @@ namespace Mona.Web.Controllers
                     file.SaveAs(Path.Combine(savePath, fileName));
                     model.Picture = fileName;
                 }
-                var contact = await ContactProvider.GetContact(id);
-                
-                if (file != null)
-                {
-                    contact.Picture = model.Picture;
-                }
-                await ContactProvider.UpdateContact(id, model);
+               
+                await ContactProvider.UpdateContact(id, model, file);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -186,9 +176,15 @@ namespace Mona.Web.Controllers
         // POST: Contacts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(long id)
+        public async Task<ActionResult> DeleteConfirmed(long id, ContactDeleteOrDetailsModel model)
         {
-            await ContactProvider.DeleteContact(id);
+            var contact = await ContactProvider.GetContactDetails(id);
+            if (model != null)
+            {
+                
+await ContactProvider.DeleteContact(id, contact);
+            }
+            
             return RedirectToAction("Index");
         }
 

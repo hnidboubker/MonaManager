@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using Mona.Web.Entities;
@@ -15,9 +16,9 @@ namespace Mona.Web.Providers
         Task<List<ContactModel>> GetContacts();
         Task<ContactDeleteOrDetailsModel> GetContactDetails(long id);
         Task<ContactAddOrUpdateModel> GetContact(long id);
-        Task CreateContact(ContactAddOrUpdateModel model);
-        Task UpdateContact(long id, ContactAddOrUpdateModel model);
-        Task DeleteContact(long id);
+        Task CreateContact(ContactAddOrUpdateModel model, HttpPostedFileBase file);
+        Task UpdateContact(long id, ContactAddOrUpdateModel model, HttpPostedFileBase file);
+        Task DeleteContact(long id, ContactDeleteOrDetailsModel model);
 
     }
 
@@ -89,7 +90,7 @@ namespace Mona.Web.Providers
             return model;
         }
 
-        public virtual async Task CreateContact(ContactAddOrUpdateModel model)
+        public virtual async Task CreateContact(ContactAddOrUpdateModel model, HttpPostedFileBase file)
         {
            
             var contact = new Contact
@@ -105,8 +106,8 @@ namespace Mona.Web.Providers
                 FaceBookAddress = model.FaceBookAddress
 
             };
-            HttpPostedFileBase file = null;
-            if (false)
+           
+            if (file != null)
             {
                 contact.Picture = model.Picture;
             }
@@ -117,7 +118,7 @@ namespace Mona.Web.Providers
            
         }
 
-        public virtual async Task UpdateContact(long id, ContactAddOrUpdateModel model)
+        public virtual async Task UpdateContact(long id, ContactAddOrUpdateModel model, HttpPostedFileBase file)
         {
             var contact = await Service.FindByIdAsync(id);
              if (model != null)
@@ -131,17 +132,29 @@ namespace Mona.Web.Providers
                     contact.TwiterAddress = model.TwiterAddress;
                     contact.FaceBookAddress = model.FaceBookAddress;
                 }
+            if (file != null)
+            {
+                if (model != null) contact.Picture = model.Picture;
+            }
             await Service.UpdateAsync(contact);
             // Todo do test if it works if not implement commit directly in the controller
             await Service.CommitAsync();
             
         }
 
-        public virtual async Task DeleteContact(long id)
+        public virtual async Task DeleteContact(long id, ContactDeleteOrDetailsModel model)
         {
             var contact = await Service.FindByIdAsync(id);
+            if (contact != null)
+            {
+                model.Code = contact.Code;
+                model.FirstName = contact.FirstName;
+                model.LastName = contact.LastName;
+                model.PhoneNumber = contact.PhoneNumber;
+                model.Email = contact.Email;
+            }
 
-            await Service.RemoveAsync(contact);
+           await Service.RemoveAsync(contact);
             await Service.CommitAsync();
            
         }
