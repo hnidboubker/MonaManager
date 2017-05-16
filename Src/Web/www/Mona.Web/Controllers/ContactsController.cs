@@ -172,7 +172,7 @@ namespace Mona.Web.Controllers
             {
                 return HttpNotFound();
             }
-            var model = new ContactAddOrUpdateModel()
+            var model = new  ContactDeleteOrDetailsModel
             {
                 Code = contact.Code,
                 Picture = contact.Picture,
