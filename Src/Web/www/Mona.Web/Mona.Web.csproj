@@ -247,6 +247,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CodeGeneratorHelper.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.Designer.cs">
       <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
@@ -362,7 +363,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Infrastructure\" />
     <Folder Include="ViewModels\Customers\" />
   </ItemGroup>
   <ItemGroup>
