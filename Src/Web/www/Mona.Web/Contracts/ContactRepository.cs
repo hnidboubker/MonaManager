@@ -10,7 +10,7 @@ namespace Mona.Web.Contracts
 {
     public interface IContactRepository
     {
-        IQueryable<Contact> GetQuery { get; } 
+        IQueryable<Contact> GetQuery { get; }
         IQueryable<Contact> GetAll();
         Task<List<Contact>> GetAllAsync();
         Contact FindById(long id);
@@ -27,9 +27,9 @@ namespace Mona.Web.Contracts
 
     public class ContactRepository : IDisposable, IContactRepository
     {
+        private readonly bool disposed;
         protected DefaultContext Context;
         protected IDbSet<Contact> DbSet;
-        private bool disposed;
 
         public ContactRepository()
         {
@@ -46,31 +46,32 @@ namespace Mona.Web.Contracts
         {
             get
             {
-                var query = DbSet;
+                IDbSet<Contact> query = DbSet;
                 return query;
             }
         }
+
         public virtual IQueryable<Contact> GetAll()
         {
-            var query = GetQuery;
+            IQueryable<Contact> query = GetQuery;
             return query;
         }
 
         public virtual async Task<List<Contact>> GetAllAsync()
         {
-            var query = await GetQuery.ToListAsync();
+            List<Contact> query = await GetQuery.ToListAsync();
             return query;
         }
 
         public virtual Contact FindById(long id)
         {
-            var query = DbSet.FirstOrDefault(o => o.Id == id);
+            Contact query = DbSet.FirstOrDefault(o => o.Id == id);
             return query;
         }
 
         public virtual async Task<Contact> FindByIdAsync(long id)
         {
-            var query = await Task.FromResult(FindById(id));
+            Contact query = await Task.FromResult(FindById(id));
             return query;
         }
 
@@ -85,7 +86,7 @@ namespace Mona.Web.Contracts
 
         public virtual async Task<Contact> InsertAsync(Contact contact)
         {
-            var query = await Task.FromResult(Insert(contact));
+            Contact query = await Task.FromResult(Insert(contact));
             return query;
         }
 
@@ -100,7 +101,7 @@ namespace Mona.Web.Contracts
 
         public virtual async Task<Contact> UpdateAsync(Contact contact)
         {
-            var query = await Task.FromResult(Update(contact));
+            Contact query = await Task.FromResult(Update(contact));
             return query;
         }
 
@@ -115,19 +116,19 @@ namespace Mona.Web.Contracts
 
         public virtual async Task<Contact> RemoveAsync(Contact contact)
         {
-            var query = await Task.FromResult(Remove(contact));
+            Contact query = await Task.FromResult(Remove(contact));
             return query;
         }
 
         public virtual int Commit()
         {
-            var query = DataContext.Commit();
+            int query = DataContext.Commit();
             return query;
         }
 
         public virtual async Task<int> CommitAsync()
         {
-            var query = await DataContext.CommitAsync();
+            int query = await DataContext.CommitAsync();
             return query;
         }
 

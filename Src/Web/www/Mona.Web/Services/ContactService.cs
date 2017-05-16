@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using Mona.Web.Contracts;
 using Mona.Web.Entities;
 
@@ -19,7 +17,7 @@ namespace Mona.Web.Services
         Contact Update(Contact contact);
         Task<Contact> UpdateAsync(Contact contact);
         Contact Remove(Contact contact);
-        Task<Contact> RemoveAsync(Contact contact); 
+        Task<Contact> RemoveAsync(Contact contact);
         int Commit();
         Task<int> CommitAsync();
     }
@@ -35,73 +33,73 @@ namespace Mona.Web.Services
 
         public virtual IQueryable<Contact> GetAll()
         {
-            var result = Repository.GetAll();
+            IQueryable<Contact> result = Repository.GetAll();
             return result;
         }
 
         public virtual async Task<List<Contact>> GetAllAsync()
         {
-            var result = await Repository.GetAllAsync();
+            List<Contact> result = await Repository.GetAllAsync();
             return result;
         }
 
         public virtual Contact FindById(long id)
         {
-            var result = Repository.FindById(id);
+            Contact result = Repository.FindById(id);
             return result;
         }
 
         public virtual async Task<Contact> FindByIdAsync(long id)
         {
-            var result = await Repository.FindByIdAsync(id);
+            Contact result = await Repository.FindByIdAsync(id);
             return result;
         }
 
         public virtual Contact Insert(Contact contact)
         {
-            var result = Repository.Insert(contact);
+            Contact result = Repository.Insert(contact);
             return result;
         }
 
         public virtual async Task<Contact> InsertAsync(Contact contact)
         {
-            var result = await Repository.InsertAsync(contact);
+            Contact result = await Repository.InsertAsync(contact);
             return result;
         }
 
         public virtual Contact Update(Contact contact)
         {
-            var result = Repository.Update(contact);
+            Contact result = Repository.Update(contact);
             return result;
         }
 
         public virtual async Task<Contact> UpdateAsync(Contact contact)
         {
-            var result = await Repository.UpdateAsync(contact);
+            Contact result = await Repository.UpdateAsync(contact);
             return result;
         }
 
         public virtual Contact Remove(Contact contact)
         {
-            var result = Repository.Remove(contact);
+            Contact result = Repository.Remove(contact);
             return result;
         }
 
         public virtual Task<Contact> RemoveAsync(Contact contact)
         {
-            var result = Repository.RemoveAsync(contact);
+            Task<Contact> result = Repository.RemoveAsync(contact);
             return result;
         }
 
         public virtual int Commit()
         {
-            var result = Repository.Commit();
+            int result = Repository.Commit();
             return result;
         }
 
         public virtual async Task<int> CommitAsync()
         {
-            var result = await Repository.CommitAsync();
+            int result = await Repository.CommitAsync();
             return result;
         }
     }

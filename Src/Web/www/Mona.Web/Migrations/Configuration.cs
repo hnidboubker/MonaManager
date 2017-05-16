@@ -1,15 +1,16 @@
+using System.Data.Entity.Migrations;
+using Mona.Web.Data;
+
 namespace Mona.Web.Migrations
 {
-    using System.Data.Entity.Migrations;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<Mona.Web.Data.DefaultContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DefaultContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Mona.Web.Data.DefaultContext context)
+        protected override void Seed(DefaultContext context)
         {
             //  This method will be called after migrating to the latest version.
 

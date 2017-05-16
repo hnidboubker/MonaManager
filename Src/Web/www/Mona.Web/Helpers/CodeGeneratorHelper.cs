@@ -2,32 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using Mona.Web.Data;
+using Mona.Web.Entities;
 
 namespace Mona.Web.Helpers
 {
     public class CodeGeneratorHelper
     {
+        private static readonly Random random = new Random();
+
         public static int GenerateCode()
         {
-            var result = GenerateCodeRandom();
+            int result = GenerateCodeRandom();
             return result;
         }
 
         private static int GenerateCodeRandom()
         {
             var db = new DefaultContext();
-            var vals = GenerateRandom(1000, 0, Int32.MaxValue);
-            var entityCount = from t in db.Contacts select t;
-            var arrange = entityCount.Count() + 1;
+            List<int> vals = GenerateRandom(1000, 0, Int32.MaxValue);
+            IQueryable<Contact> entityCount = from t in db.Contacts select t;
+            int arrange = entityCount.Count() + 1;
 
-            var result = vals.Count() + arrange;
+            int result = vals.Count() + arrange;
 
             return result;
-
-
         }
+
         // Code origine https://codereview.stackexchange.com/questions/61338/generate-random-numbers-without-repetitions
-        private static Random random = new Random();
+
         private static List<int> GenerateRandom(int count, int min, int max)
         {
             // generate count random values.
@@ -37,11 +39,12 @@ namespace Mona.Web.Helpers
             {
                 // need to use 64-bit to support big ranges (negative min, positive max)
                 throw new ArgumentOutOfRangeException("Range " + min + " to " + max +
-                        " (" + ((Int64)max - (Int64)min) + " values), or count " + count + " is illegal");
+                                                      " (" + (max - (Int64) min) + " values), or count " + count +
+                                                      " is illegal");
             }
 
             // generate count random values.
-            HashSet<int> candidates = new HashSet<int>();
+            var candidates = new HashSet<int>();
 
             // start count values before max, and end at max
             for (int top = max - count; top < max; top++)

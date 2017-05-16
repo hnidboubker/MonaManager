@@ -1,7 +1,8 @@
 ﻿using Microsoft.Owin;
+using Mona.Web;
 using Owin;
 
-[assembly: OwinStartup(typeof(Mona.Web.Startup))]
+[assembly: OwinStartup(typeof (Startup))]
 
 namespace Mona.Web
 {

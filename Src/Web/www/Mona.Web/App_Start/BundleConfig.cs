@@ -18,7 +18,6 @@ namespace Mona.Web
                 "~/Scripts/knockout-{version}.js",
                 "~/Scripts/knockout.validation.js"));
 
-           
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -30,9 +29,8 @@ namespace Mona.Web
                 "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                 "~/Content/bootstrap.css"
-                
-                 ));
+                "~/Content/bootstrap.css"
+                ));
         }
     }
 }

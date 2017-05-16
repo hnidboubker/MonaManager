@@ -1,5 +1,4 @@
-﻿@using Mona.Web.ViewModels.Contacts
-@model ContactDeleteOrDetailsModel
+﻿@model Mona.Web.ViewModels.Contacts.ContactDeleteOrDetailsModel
 
 @{
     ViewBag.Title = "Delete";
@@ -86,7 +85,7 @@
 
     </dl>
 
-    @using (Html.BeginForm("Delete", "Contacts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Delete", "Contacts", FormMethod.Post, new {enctype = "multipart/form-data"}))
     {
         @Html.AntiForgeryToken()
 

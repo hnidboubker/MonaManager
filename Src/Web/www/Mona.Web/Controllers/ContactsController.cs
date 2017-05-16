@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Mona.Web.Providers;
@@ -11,19 +12,18 @@ namespace Mona.Web.Controllers
 {
     public class ContactsController : Controller
     {
-      
         protected IContactProvider ContactProvider;
 
         public ContactsController(IContactProvider contactProvider)
         {
-            this.ContactProvider = contactProvider;
+            ContactProvider = contactProvider;
         }
 
         // GET: Contacts
         public async Task<ActionResult> Index()
         {
-            var model = await ContactProvider.GetContacts();
-            return View(model);                                  
+            List<ContactModel> model = await ContactProvider.GetContacts();
+            return View(model);
         }
 
         // GET: Contacts/Details/5
@@ -33,16 +33,15 @@ namespace Mona.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-          
-            var model = await ContactProvider.GetContactDetails(id);
+
+            ContactDeleteOrDetailsModel model = await ContactProvider.GetContactDetails(id);
 
             if (model == null)
             {
                 return HttpNotFound();
             }
 
-           
-           
+
             return View(model);
         }
 
@@ -60,14 +59,14 @@ namespace Mona.Web.Controllers
         {
             if (file != null)
             {
-                if (file.ContentLength >(512 * 1000))
+                if (file.ContentLength > (512*1000))
                 {
                     ModelState.AddModelError("FileErrorMessage", "File size must within 512 KB !");
                 }
 
-                string[] allowedSettings = new[] {"image/png", "image/gif", "image/jpg", "image/jpeg"};
+                string[] allowedSettings = {"image/png", "image/gif", "image/jpg", "image/jpeg"};
                 bool isFileSettingsValid = false;
-                foreach (var allowedSetting in allowedSettings)
+                foreach (string allowedSetting in allowedSettings)
                 {
                     if (file.ContentType == allowedSetting)
                     {
@@ -89,7 +88,7 @@ namespace Mona.Web.Controllers
                     file.SaveAs(Path.Combine(savePath, fileName));
                     model.Picture = fileName;
                 }
-               
+
                 await ContactProvider.CreateContact(model, file);
                 return RedirectToAction("Index");
             }
@@ -104,12 +103,12 @@ namespace Mona.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var model = await ContactProvider.GetContact(id);
+            ContactAddOrUpdateModel model = await ContactProvider.GetContact(id);
             if (model == null)
             {
                 return HttpNotFound();
             }
-            
+
             return View(model);
         }
 
@@ -120,14 +119,14 @@ namespace Mona.Web.Controllers
         {
             if (file != null)
             {
-                if (file.ContentLength > (512 * 1000))
+                if (file.ContentLength > (512*1000))
                 {
                     ModelState.AddModelError("FileErrorMessage", "File size must within 512 KB !");
                 }
 
-                string[] allowedSettings = new[] { "image/png", "image/gif", "image/jpg", "image/jpeg" };
+                string[] allowedSettings = {"image/png", "image/gif", "image/jpg", "image/jpeg"};
                 bool isFileSettingsValid = false;
-                foreach (var allowedSetting in allowedSettings)
+                foreach (string allowedSetting in allowedSettings)
                 {
                     if (file.ContentType == allowedSetting)
                     {
@@ -149,7 +148,7 @@ namespace Mona.Web.Controllers
                     file.SaveAs(Path.Combine(savePath, fileName));
                     model.Picture = fileName;
                 }
-               
+
                 await ContactProvider.UpdateContact(id, model, file);
                 return RedirectToAction("Index");
             }
@@ -163,12 +162,12 @@ namespace Mona.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var model = await ContactProvider.GetContactDetails(id);
+            ContactDeleteOrDetailsModel model = await ContactProvider.GetContactDetails(id);
             if (model == null)
             {
                 return HttpNotFound();
             }
-           
+
             return View(model);
         }
 
@@ -177,17 +176,13 @@ namespace Mona.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(long id, ContactDeleteOrDetailsModel model)
         {
-            var contact = await ContactProvider.GetContactDetails(id);
+            ContactDeleteOrDetailsModel contact = await ContactProvider.GetContactDetails(id);
             if (model != null)
             {
-                // Todo fix bug: method dosen't working
-                
-                    await ContactProvider.DeleteContact(id, contact);
+                await ContactProvider.DeleteContact(id, contact);
             }
-            
+
             return RedirectToAction("Index");
         }
-
-       
     }
 }

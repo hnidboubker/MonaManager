@@ -9,9 +9,8 @@ namespace Mona.Web.Data
 {
     public class DefaultContext : DbContext
     {
-        public DefaultContext():base("Default")
+        public DefaultContext() : base("Default")
         {
-            
         }
 
         public IDbSet<Contact> Contacts { get; set; }
@@ -29,7 +28,6 @@ namespace Mona.Web.Data
                 .Entity<Contact>()
                 .ToTable("Contact")
                 .HasKey(o => o.Id);
-
         }
 
         public override int SaveChanges()
@@ -40,36 +38,32 @@ namespace Mona.Web.Data
             }
             catch (DbEntityValidationException ex)
             {
-
                 throw new FormattedDbEntityValidationException(ex);
             }
-            
         }
 
         public override Task<int> SaveChangesAsync()
         {
             try
             {
-            return base.SaveChangesAsync();
+                return base.SaveChangesAsync();
             }
             catch (DbEntityValidationException ex)
             {
-                
-             throw new FormattedDbEntityValidationException(ex);
+                throw new FormattedDbEntityValidationException(ex);
             }
-           
         }
 
         public virtual int Commit()
         {
-            var result = base.SaveChanges();
+            int result = base.SaveChanges();
             return result;
         }
 
         public virtual async Task<int> CommitAsync()
         {
-            var result = await base.SaveChangesAsync();
+            int result = await base.SaveChangesAsync();
             return result;
-        } 
+        }
     }
 }

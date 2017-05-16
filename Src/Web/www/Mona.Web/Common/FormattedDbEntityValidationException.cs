@@ -26,17 +26,19 @@ namespace Mona.Web.Common
 
                 sb.AppendLine();
                 sb.AppendLine();
-                foreach (var eve in innerException.EntityValidationErrors)
+                foreach (DbEntityValidationResult eve in innerException.EntityValidationErrors)
                 {
-                    sb.AppendLine(string.Format("- Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                        eve.Entry.Entity.GetType().FullName, eve.Entry.State));
-                    foreach (var ve in eve.ValidationErrors)
+                    sb.AppendLine(
+                        string.Format("- Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().FullName, eve.Entry.State));
+                    foreach (DbValidationError ve in eve.ValidationErrors)
                     {
                         object value;
                         if (ve.PropertyName.Contains("."))
                         {
-                            var propertyChain = ve.PropertyName.Split('.');
-                            var complexProperty = eve.Entry.CurrentValues.GetValue<DbPropertyValues>(propertyChain.First());
+                            string[] propertyChain = ve.PropertyName.Split('.');
+                            var complexProperty =
+                                eve.Entry.CurrentValues.GetValue<DbPropertyValues>(propertyChain.First());
                             value = GetComplexPropertyValue(complexProperty, propertyChain.Skip(1).ToArray());
                         }
                         else
@@ -57,10 +59,11 @@ namespace Mona.Web.Common
 
         private static object GetComplexPropertyValue(DbPropertyValues propertyValues, string[] propertyChain)
         {
-            var propertyName = propertyChain.First();
+            string propertyName = propertyChain.First();
             return propertyChain.Count() == 1
                 ? propertyValues[propertyName]
-                : GetComplexPropertyValue((DbPropertyValues)propertyValues[propertyName], propertyChain.Skip(1).ToArray());
+                : GetComplexPropertyValue((DbPropertyValues) propertyValues[propertyName],
+                    propertyChain.Skip(1).ToArray());
         }
     }
 }
