@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using Mona.Web.Data;
 using Mona.Web.Entities;
@@ -77,16 +80,46 @@ namespace Mona.Web.Controllers
         // POST: Contacts/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ContactAddOrUpdateModel model)
+        public async Task<ActionResult> Create(ContactAddOrUpdateModel model, HttpPostedFileBase file)
         {
+            if (file != null)
+            {
+                if (file.ContentLength >(512 * 1000))
+                {
+                    ModelState.AddModelError("FileErrorMessage", "File size must within 512 KB !");
+                }
+
+                string[] allowedSettings = new[] {"image/png", "image/gif", "image/jpg", "image/jpeg"};
+                bool isFileSettingsValid = false;
+                foreach (var allowedSetting in allowedSettings)
+                {
+                    if (file.ContentType == allowedSetting)
+                    {
+                        isFileSettingsValid = true;
+                        break;
+                    }
+                }
+                if (!isFileSettingsValid)
+                {
+                    ModelState.AddModelError("FileErrorMessage", "Only .png .gif .jpg and .jpeg file is allowed !");
+                }
+            }
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    string savePath = Server.MapPath("~/Assets/imgs/persons");
+                    string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                    file.SaveAs(Path.Combine(savePath, fileName));
+                    model.Picture = fileName;
+                }
                 var contact = new Contact
                 {
                   Id   =  new long(), 
                   Code = CodeGeneratorHelper.GenerateCode(),
                   ContactType = model.ContactType,
-                  Picture = model.Picture,
+                  
+                  
                   FirstName = model.FirstName,
                   LastName = model.LastName,
                   PhoneNumber = model.PhoneNumber,
@@ -95,6 +128,10 @@ namespace Mona.Web.Controllers
                   FaceBookAddress = model.FaceBookAddress
 
                 };
+                if (file != null)
+                {
+                    contact.Picture = model.Picture;
+                }
                 db.Contacts.Add(contact);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
