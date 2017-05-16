@@ -107,9 +107,9 @@ namespace Mona.Web.Controllers
         }
 
         // GET: Contacts/Edit/5
-        public async Task<ActionResult> Edit(long? id)
+        public async Task<ActionResult> Edit(long id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -118,23 +118,45 @@ namespace Mona.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            var model = new ContactAddOrUpdateModel()
+            {
+                Code = contact.Code,
+                Picture = contact.Picture,
+                ContactType = contact.ContactType,
+                FirstName = contact.FirstName,
+                LastName = contact.LastName,
+                PhoneNumber = contact.PhoneNumber,
+                Email = contact.Email,
+                TwiterAddress = contact.TwiterAddress,
+                FaceBookAddress = contact.FaceBookAddress
+            };
+            return View(model);
         }
 
         // POST: Contacts/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Code,Picture,ContactType,FirstName,LastName,PhoneNumber,Email,TwiterAddress,FaceBookAddress")] Contact contact)
+        public async Task<ActionResult> Edit(long id, ContactAddOrUpdateModel model)
         {
             if (ModelState.IsValid)
             {
+                var contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
+                if (model != null)
+                {
+                    contact.Picture = model.Picture;
+                    contact.ContactType = model.ContactType;
+                    contact.FirstName = model.FirstName;
+                    contact.LastName = model.LastName;
+                    contact.PhoneNumber = model.PhoneNumber;
+                    contact.Email = model.Email;
+                    contact.TwiterAddress = model.TwiterAddress;
+                    contact.FaceBookAddress = model.FaceBookAddress;
+                }
                 db.Entry(contact).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(contact);
+            return View(model);
         }
 
         // GET: Contacts/Delete/5
