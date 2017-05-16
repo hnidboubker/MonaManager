@@ -29,7 +29,7 @@ namespace Mona.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = await db.Contacts.FindAsync(id);
+            Contact contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -67,7 +67,7 @@ namespace Mona.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = await db.Contacts.FindAsync(id);
+            Contact contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -98,7 +98,7 @@ namespace Mona.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = await db.Contacts.FindAsync(id);
+            Contact contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -111,7 +111,7 @@ namespace Mona.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
-            Contact contact = await db.Contacts.FindAsync(id);
+            Contact contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
             db.Contacts.Remove(contact);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
