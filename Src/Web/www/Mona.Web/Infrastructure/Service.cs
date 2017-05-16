@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Mona.Web.Infrastructure
 {
-    public interface IService<T, TKey>
+    public interface IService<T, in TKey>
     {
         IQueryable<T> GetAll();
         Task<List<T>> GetAllAsync();
@@ -21,7 +21,7 @@ namespace Mona.Web.Infrastructure
         Task<int> CommitAsync();
     }
 
-    public abstract class Service<T, TKey> : IService<T, TKey>
+    public abstract class Service<T, TKey> : IService<T, TKey> where T : class
     {
         protected IRepository<T, TKey> Repository;
 

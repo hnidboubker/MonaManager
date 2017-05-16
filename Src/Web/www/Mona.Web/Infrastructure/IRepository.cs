@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mona.Web.Infrastructure
 {
-    public interface IRepository<T, TKey>
+    public interface IRepository<T, in TKey> where T : class 
     {
         IQueryable<T> GetQuery { get; }
         IQueryable<T> GetAll();

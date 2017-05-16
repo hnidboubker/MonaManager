@@ -6,7 +6,7 @@ using Mona.Web.Data;
 
 namespace Mona.Web.Infrastructure
 {
-    public interface IEntityRepository<T> : IRepository<T, long>
+    public interface IEntityRepository<T> : IRepository<T, long> where T : class
     {
     }
 
