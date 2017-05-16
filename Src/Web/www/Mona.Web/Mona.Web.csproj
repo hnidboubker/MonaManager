@@ -247,6 +247,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CodeGeneratorHelper.cs" />
+    <Compile Include="Infrastructure\EntityRepository.cs" />
     <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Infrastructure\Service.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.cs" />
