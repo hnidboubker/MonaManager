@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Mona.Web.Data;
 
 namespace Mona.Web.Infrastructure
 {
@@ -26,12 +27,20 @@ namespace Mona.Web.Infrastructure
 
     public abstract class Repository<T, TKey> :IDisposable, IRepository<T, TKey> where T : class, IEntity<TKey>
     {
+        protected IDataContext Context;
+        protected IEntityContextFactory EntityContextFactory;
         protected IDbSet<T> DbSet;
         //private bool disposed;
 
-        protected Repository()
+        protected Repository(IEntityContextFactory entityContextFactory)
         {
+            EntityContextFactory = entityContextFactory;
             //disposed = false;
+        }
+
+        public IDataContext DataContext
+        {
+            get { return Context ?? (Context = EntityContextFactory.Get()); }
         }
 
         public virtual IQueryable<T> GetQuery { get { return DbSet; } }
