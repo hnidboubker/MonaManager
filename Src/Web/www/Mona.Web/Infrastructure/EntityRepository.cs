@@ -10,12 +10,12 @@ namespace Mona.Web.Infrastructure
     public class EntityRepository<T> : Repository<T, long>, IEntityRepository<T> where T : class, IEntity<long>
     {
         //protected DefaultContext Context;
-        private readonly bool _disposed;
+        private  bool _disposed;
 
         //public EntityRepository()
         //{
         //    DbSet = DataContext.Set<T>();
-        //    _disposed = false;
+        //    
         //}
 
         // Todo Move this to Context Factory
@@ -23,6 +23,7 @@ namespace Mona.Web.Infrastructure
             : base(entityContextFactory)
         {
             //DbSet = DataContext.DbSet<T>();
+            _disposed = false;
         }
 
         //public DefaultContext DataContext
