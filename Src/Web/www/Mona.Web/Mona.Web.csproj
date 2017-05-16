@@ -239,6 +239,7 @@
     <Compile Include="Contracts\ContactRepository.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\DefaultContext.cs" />
     <Compile Include="Common\FormattedDbEntityValidationException.cs" />
     <Compile Include="Data\EntityContext.cs" />
