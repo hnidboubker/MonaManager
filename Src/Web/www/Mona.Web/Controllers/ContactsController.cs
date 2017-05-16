@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Owin.Security.Twitter;
 using Mona.Web.Data;
 using Mona.Web.Entities;
 using Mona.Web.ViewModels.Contacts;
@@ -48,11 +49,25 @@ namespace Mona.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Contact contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
+
             if (contact == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+
+            var model = new ContactDeleteOrDetailsModel()
+            {
+                Code =  contact.Code,
+               Picture = contact.Picture,
+               ContactType = contact.ContactType,
+               FirstName = contact.FirstName,
+               LastName = contact.LastName,
+               PhoneNumber = contact.PhoneNumber,
+               Email = contact.Email,
+               TwiterAddress = contact.TwiterAddress,
+               FaceBookAddress = contact.FaceBookAddress
+            };
+            return View(model);
         }
 
         // GET: Contacts/Create
