@@ -144,7 +144,7 @@ namespace Mona.Web.Providers
 
         public virtual async Task DeleteContact(long id, ContactDeleteOrDetailsModel model)
         {
-            var contact = await Service.FindByIdAsync(id);
+            Contact contact = await Service.FindByIdAsync(id);
             if (contact != null)
             {
                 model.Code = contact.Code;

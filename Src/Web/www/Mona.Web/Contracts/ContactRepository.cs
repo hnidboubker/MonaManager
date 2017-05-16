@@ -115,7 +115,7 @@ namespace Mona.Web.Contracts
 
         public virtual async Task<Contact> RemoveAsync(Contact contact)
         {
-            var query = await Task.FromResult(contact);
+            var query = await Task.FromResult(Remove(contact));
             return query;
         }
 
