@@ -240,6 +240,7 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\DefaultContext.cs" />
+    <Compile Include="Common\FormattedDbEntityValidationException.cs" />
     <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\ContactType.cs" />
     <Compile Include="Global.asax.cs">
