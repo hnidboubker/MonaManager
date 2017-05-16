@@ -247,6 +247,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CodeGeneratorHelper.cs" />
+    <Compile Include="Infrastructure\EntityContextFactory.cs" />
     <Compile Include="Infrastructure\EntityRepository.cs" />
     <Compile Include="Infrastructure\EntityService.cs" />
     <Compile Include="Infrastructure\IEntity.cs" />
