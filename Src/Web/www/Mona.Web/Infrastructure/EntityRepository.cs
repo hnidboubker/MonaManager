@@ -63,18 +63,18 @@ namespace Mona.Web.Infrastructure
         //}
 
         // Todo Move this to Unit Of Work
-        public override int Commit()
-        {
-            var query = DataContext.Commit();
-            return query;
-        }
+        //public override int Commit()
+        //{
+        //    var query = DataContext.Commit();
+        //    return query;
+        //}
 
         // Todo Move this to Unit Of Work
-        public override async Task<int> CommitAsync()
-        {
-            var query = await DataContext.SaveChangesAsync();
-            return query;
-        }
+        //public override async Task<int> CommitAsync()
+        //{
+        //    var query = await DataContext.SaveChangesAsync();
+        //    return query;
+        //}
 
         public override void Dispose()
         {
