@@ -66,6 +66,11 @@ namespace Mona.Web
         private static void RegisterServices(IKernel kernel)
         {
             kernel
+                .Bind<IUnitOfWork>()
+                .To<UnitOfWork>()
+                .InRequestScope();
+
+            kernel
                 .Bind<IEntityContextFactory>()
                 .To<EntityContextFactory>()
                 .InRequestScope();
