@@ -1,8 +1,8 @@
-@using Mona.Web.Areas.HelpPage.Models
-@model HelpPageApiModel
+@using System.Web.Http.Description
+@model Mona.Web.Areas.HelpPage.Models.HelpPageApiModel
 
 @{
-    var description = Model.ApiDescription;
+    ApiDescription description = Model.ApiDescription;
     ViewBag.Title = description.HttpMethod.Method + " " + description.RelativePath;
 }
 
