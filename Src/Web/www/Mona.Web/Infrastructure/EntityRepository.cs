@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using Mona.Web.Data;
 
 namespace Mona.Web.Infrastructure
@@ -15,10 +13,12 @@ namespace Mona.Web.Infrastructure
     public class EntityRepository<T> : Repository<T, long>, IEntityRepository<T> where T : class
     {
         protected DefaultContext Context;
+        private readonly bool _disposed;
 
         public EntityRepository()
         {
             DbSet = DataContext.Set<T>();
+            _disposed = false;
         }
 
         // Todo Move this to Context Factory
@@ -26,42 +26,35 @@ namespace Mona.Web.Infrastructure
         {
             get { return Context ?? (Context = new DefaultContext()); }
         }
-        public override IQueryable<T> GetQuery
-        {
-            get { return DbSet; }
-        }
 
-        public override T FindById(long id)
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        public override T Insert(T entity)
-        {
-            if (entity != null)
-            {
-                DbSet.Add(entity);
-            }
-            return entity;
-        }
+        //public override T Insert(T entity)
+        //{
+        //    if (entity != null)
+        //    {
+        //        DbSet.Add(entity);
+        //    }
+        //    return entity;
+        //}
 
         public override T Update(T entity)
         {
             if (entity != null)
             {
-                 DataContext.Entry(entity).State = EntityState.Modified;
+                DataContext.Entry(entity).State = EntityState.Modified;
             }
             return entity;
         }
 
-        public override T Remove(T entity)
-        {
-            if (entity != null)
-            {
-                DbSet.Remove(entity);
-            }
-            return entity;
-        }
+        //public override T Remove(T entity)
+        //{
+        //    if (entity != null)
+        //    {
+        //        DbSet.Remove(entity);
+        //    }
+        //    return entity;
+        //}
 
         // Todo Move this to Unit Of Work
         public override int Commit()
@@ -71,10 +64,28 @@ namespace Mona.Web.Infrastructure
         }
 
         // Todo Move this to Unit Of Work
-        public async override  Task<int> CommitAsync()
+        public override async Task<int> CommitAsync()
         {
             var query = await DataContext.SaveChangesAsync();
             return query;
+        }
+
+        public override void Dispose()
+        {
+           Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        public override void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    DataContext.Dispose();
+                }
+            }
+
         }
     }
 }

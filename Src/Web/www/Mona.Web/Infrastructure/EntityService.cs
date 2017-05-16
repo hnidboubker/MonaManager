@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Mona.Web.Infrastructure
+﻿namespace Mona.Web.Infrastructure
 {
     public interface IEntityService<T> : IService<T, long>
     {

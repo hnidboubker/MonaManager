@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
-using System.Web;
-using Mona.Web.Entities;
 
 namespace Mona.Web.Infrastructure
 {
@@ -25,17 +24,17 @@ namespace Mona.Web.Infrastructure
         Task<int> CommitAsync();
     }
 
-    public abstract class Repository<T, TKey> : IRepository<T, TKey> where T : class
+    public abstract class Repository<T, TKey> :IDisposable, IRepository<T, TKey> where T : class
     {
         protected IDbSet<T> DbSet;
-        private bool disposed;
+        //private bool disposed;
 
-        public Repository()
+        protected Repository()
         {
-            disposed = false;
+            //disposed = false;
         }
 
-        public abstract IQueryable<T> GetQuery { get; }
+        public virtual IQueryable<T> GetQuery { get { return DbSet; } }
 
         public virtual IQueryable<T> GetAll()
         {
@@ -49,7 +48,11 @@ namespace Mona.Web.Infrastructure
             return query;
         }
 
-        public abstract T FindById(TKey id);
+        public virtual T FindById(TKey id)
+        {
+            var query = DbSet.FirstOrDefault(CreateEqualityExpressionForId(id));
+            return query;
+        }
 
 
         public virtual async Task<T> FindByIdAsync(TKey id)
@@ -58,7 +61,15 @@ namespace Mona.Web.Infrastructure
             return query;
         }
 
-        public abstract T Insert(T entity);
+        public virtual T Insert(T entity)
+        {
+            if (entity != null)
+            {
+                DbSet.Add(entity);
+            }
+            return entity;
+
+        }
 
 
         public virtual async Task<T> InsertAsync(T entity)
@@ -76,7 +87,14 @@ namespace Mona.Web.Infrastructure
             return query;
         }
 
-        public abstract T Remove(T contact);
+        public virtual T Remove(T entity)
+        {
+            if (entity != null)
+            {
+                DbSet.Remove(entity);
+            }
+            return entity;
+        }
 
         public virtual async Task<T> RemoveAsync(T entity)
         {
@@ -84,11 +102,26 @@ namespace Mona.Web.Infrastructure
             return query;
         }
 
+        // Code Origine ABP Boilerplate 
+        protected static Expression<Func<T, bool>> CreateEqualityExpressionForId(TKey id)
+        {
+            var lambdaParam = Expression.Parameter(typeof(TKey));
+
+            var lambdaBody = Expression.Equal(
+                Expression.PropertyOrField(lambdaParam, "Id"),
+                Expression.Constant(id, typeof(TKey))
+                );
+
+            return Expression.Lambda<Func<T, bool>>(lambdaBody, lambdaParam);
+        }
         // Todo Move it to Unit work after 
         public abstract int Commit();
 
 
         public abstract Task<int> CommitAsync();
+
+        public abstract void Dispose();
+        public abstract void Dispose(bool disposing);
 
 
     }

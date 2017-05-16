@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace Mona.Web.Infrastructure
 {
@@ -11,7 +10,7 @@ namespace Mona.Web.Infrastructure
         IQueryable<T> GetAll();
         Task<List<T>> GetAllAsync();
         T FindById(TKey id);
-        Task<T> FindByIdAsync(T id);
+        Task<T> FindByIdAsync(TKey id);
         T Insert(T contact);
         Task<T> InsertAsync(T entity);
         T Update(T contact);
@@ -24,64 +23,80 @@ namespace Mona.Web.Infrastructure
 
     public abstract class Service<T, TKey> : IService<T, TKey>
     {
-        public IQueryable<T> GetAll()
+        protected IRepository<T, TKey> Repository;
+
+        public virtual IQueryable<T> GetAll()
         {
-            throw new NotImplementedException();
+            var result   = Repository.GetAll();
+            return result;
+        }
+       
+
+        public virtual async Task<List<T>> GetAllAsync()
+        {
+            var result = await Repository.GetAllAsync();
+            return result;
         }
 
-        public Task<List<T>> GetAllAsync()
+        public virtual T FindById(TKey id)
         {
-            throw new NotImplementedException();
+            var result = Repository.FindById(id);
+            return result;
+        }
+       
+
+        public virtual async Task<T> FindByIdAsync(TKey id)
+        {
+            var result = await Repository.FindByIdAsync(id);
+            return result;
         }
 
-        public T FindById(TKey id)
+        public virtual T Insert(T entity)
         {
-            throw new NotImplementedException();
+            var result = Repository.Insert(entity);
+            return result;
         }
 
-        public Task<T> FindByIdAsync(T id)
+        public virtual async Task<T> InsertAsync(T entity)
         {
-            throw new NotImplementedException();
+            var result = await Repository.InsertAsync(entity);
+            return result;
         }
 
-        public T Insert(T contact)
+        public virtual T Update(T entity)
         {
-            throw new NotImplementedException();
+            var result = Repository.Update(entity);
+            return result;
         }
 
-        public Task<T> InsertAsync(T entity)
+        public virtual async Task<T> UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            var result = await Repository.UpdateAsync(entity);
+            return result;
         }
 
-        public T Update(T contact)
+        public virtual T Remove(T entity)
         {
-            throw new NotImplementedException();
+            var result = Repository.Remove(entity);
+            return result;
         }
 
-        public Task<T> UpdateAsync(T entity)
+        public virtual async Task<T> RemoveAsync(T entity)
         {
-            throw new NotImplementedException();
+            var result = await Repository.RemoveAsync(entity);
+            return result;
         }
 
-        public T Remove(T contact)
+        public virtual int Commit()
         {
-            throw new NotImplementedException();
+            var result = Repository.Commit();
+            return result;
         }
 
-        public Task<T> RemoveAsync(T entity)
+        public virtual Task<int> CommitAsync()
         {
-            throw new NotImplementedException();
-        }
-
-        public int Commit()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> CommitAsync()
-        {
-            throw new NotImplementedException();
+            var result = Repository.CommitAsync();
+            return result;
         }
     }
 }
