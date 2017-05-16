@@ -93,14 +93,16 @@ namespace Mona.Web.Services
             return result;
         }
 
-        public int Commit()
+        public virtual int Commit()
         {
-            throw new NotImplementedException();
+            var result = Repository.Commit();
+            return result;
         }
 
-        public Task<int> CommitAsync()
+        public virtual async Task<int> CommitAsync()
         {
-            throw new NotImplementedException();
+            var result = await Repository.CommitAsync();
+            return result;
         }
     }
 }

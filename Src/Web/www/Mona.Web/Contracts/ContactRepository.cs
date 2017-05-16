@@ -121,12 +121,14 @@ namespace Mona.Web.Contracts
 
         public virtual int Commit()
         {
-            throw new NotImplementedException();
+            var query = DataContext.Commit();
+            return query;
         }
 
-        public virtual Task<int> CommitAsync()
+        public virtual async Task<int> CommitAsync()
         {
-            throw new NotImplementedException();
+            var query = await DataContext.CommitAsync();
+            return query;
         }
 
         public void Dispose()
