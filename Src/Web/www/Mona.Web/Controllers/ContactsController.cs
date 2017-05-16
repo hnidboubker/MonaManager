@@ -206,7 +206,7 @@ namespace Mona.Web.Controllers
                 var contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
                 if (model != null)
                 {
-                    contact.Picture = model.Picture;
+                    
                     contact.ContactType = model.ContactType;
                     contact.FirstName = model.FirstName;
                     contact.LastName = model.LastName;
