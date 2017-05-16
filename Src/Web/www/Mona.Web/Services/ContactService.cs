@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using Mona.Web.Contracts;
 using Mona.Web.Entities;
 
 namespace Mona.Web.Services
@@ -25,54 +26,71 @@ namespace Mona.Web.Services
 
     public class ContactService : IContactService
     {
-        public IQueryable<Contact> GetAll()
+        protected IContactRepository Repository;
+
+        public ContactService(IContactRepository repository)
         {
-            throw new NotImplementedException();
+            Repository = repository;
         }
 
-        public Task<List<Contact>> GetAllAsync()
+        public virtual IQueryable<Contact> GetAll()
         {
-            throw new NotImplementedException();
+            var result = Repository.GetAll();
+            return result;
         }
 
-        public Contact FindById(long id)
+        public virtual async Task<List<Contact>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var result = await Repository.GetAllAsync();
+            return result;
         }
 
-        public Task<Contact> FindByIdAsync(long id)
+        public virtual Contact FindById(long id)
         {
-            throw new NotImplementedException();
+            var result = Repository.FindById(id);
+            return result;
         }
 
-        public Contact Insert(Contact contact)
+        public virtual async Task<Contact> FindByIdAsync(long id)
         {
-            throw new NotImplementedException();
+            var result = await Repository.FindByIdAsync(id);
+            return result;
         }
 
-        public Task<Contact> InsertAsync(Contact contact)
+        public virtual Contact Insert(Contact contact)
         {
-            throw new NotImplementedException();
+            var result = Repository.Insert(contact);
+            return result;
         }
 
-        public Contact Update(Contact contact)
+        public virtual async Task<Contact> InsertAsync(Contact contact)
         {
-            throw new NotImplementedException();
+            var result = await Repository.InsertAsync(contact);
+            return result;
         }
 
-        public Task<Contact> UpdateAsync(Contact contact)
+        public virtual Contact Update(Contact contact)
         {
-            throw new NotImplementedException();
+            var result = Repository.Update(contact);
+            return result;
         }
 
-        public Contact Remove(Contact contact)
+        public virtual async Task<Contact> UpdateAsync(Contact contact)
         {
-            throw new NotImplementedException();
+            var result = await Repository.UpdateAsync(contact);
+            return result;
         }
 
-        public Task<Contact> RemoveAsync(Contact contact)
+        public virtual Contact Remove(Contact contact)
         {
-            throw new NotImplementedException();
+            var result = Repository.Remove(contact);
+            return result;
+        }
+
+        public virtual Task<Contact> RemoveAsync(Contact contact)
+        {
+            var result = Repository.RemoveAsync(contact);
+            return result;
         }
 
         public int Commit()
