@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Mona.Web.Entities.Contact>
+﻿@using Mona.Web.ViewModels.Contacts
+@model IEnumerable<ContactModel>
 
 @{
     ViewBag.Title = "Index";
@@ -11,65 +12,43 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Code)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.Picture)
         </th>
+       
         <th>
-            @Html.DisplayNameFor(model => model.ContactType)
+            @Html.DisplayNameFor(model => model.FullName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.PhoneNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TwiterAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FaceBookAddress)
-        </th>
+       
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.Picture)
         </td>
+       
         <td>
-            @Html.DisplayFor(modelItem => item.ContactType)
+            @Html.DisplayFor(modelItem => item.FullName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.PhoneNumber)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TwiterAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FaceBookAddress)
-        </td>
+       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
