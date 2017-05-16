@@ -24,7 +24,7 @@ namespace Mona.Web.Controllers
             {
                 foreach (var c in query)
                 {
-                    var builder = new ContactModel()
+                    var builder = new ContactModel
                     {
                         Id =  c.Id,
                         Picture = c.Picture,
@@ -39,9 +39,9 @@ namespace Mona.Web.Controllers
         }
 
         // GET: Contacts/Details/5
-        public async Task<ActionResult> Details(long? id)
+        public async Task<ActionResult> Details(long id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -52,7 +52,7 @@ namespace Mona.Web.Controllers
                 return HttpNotFound();
             }
 
-            var model = new ContactDeleteOrDetailsModel()
+            var model = new ContactDeleteOrDetailsModel
             {
                 Code =  contact.Code,
                Picture = contact.Picture,
@@ -81,7 +81,7 @@ namespace Mona.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var contact = new Contact()
+                var contact = new Contact
                 {
                   Id   =  new long(), 
                   Code = CodeGeneratorHelper.GenerateCode(),
@@ -115,7 +115,7 @@ namespace Mona.Web.Controllers
             {
                 return HttpNotFound();
             }
-            var model = new ContactAddOrUpdateModel()
+            var model = new ContactAddOrUpdateModel
             {
                 Code = contact.Code,
                 Picture = contact.Picture,
