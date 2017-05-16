@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
+using Mona.Web.Data;
 using Mona.Web.Entities;
 
 namespace Mona.Web.Contracts
@@ -24,67 +25,125 @@ namespace Mona.Web.Contracts
         Task<int> CommitAsync();
     }
 
-    public class ContactRepository : IContactRepository
+    public class ContactRepository : IDisposable, IContactRepository
     {
-        public IQueryable<Contact> GetQuery { get; private set; }
-        public IQueryable<Contact> GetAll()
+        protected DefaultContext Context;
+        protected IDbSet<Contact> DbSet;
+        private bool disposed;
+
+        public ContactRepository()
+        {
+            DbSet = DataContext.Set<Contact>();
+            disposed = false;
+        }
+
+        public DefaultContext DataContext
+        {
+            get { return Context ?? (Context = new DefaultContext()); }
+        }
+
+        public IQueryable<Contact> GetQuery
+        {
+            get
+            {
+                var query = DbSet;
+                return query;
+            }
+        }
+        public virtual IQueryable<Contact> GetAll()
+        {
+            var query = GetQuery;
+            return query;
+        }
+
+        public virtual async Task<List<Contact>> GetAllAsync()
+        {
+            var query = await GetQuery.ToListAsync();
+            return query;
+        }
+
+        public virtual Contact FindById(long id)
+        {
+            var query = DbSet.FirstOrDefault(o => o.Id == id);
+            return query;
+        }
+
+        public virtual async Task<Contact> FindByIdAsync(long id)
+        {
+            var query = await Task.FromResult(FindById(id));
+            return query;
+        }
+
+        public virtual Contact Insert(Contact contact)
+        {
+            if (contact != null)
+            {
+                DbSet.Add(contact);
+            }
+            return contact;
+        }
+
+        public virtual async Task<Contact> InsertAsync(Contact contact)
+        {
+            var query = await Task.FromResult(Insert(contact));
+            return query;
+        }
+
+        public virtual Contact Update(Contact contact)
+        {
+            if (contact != null)
+            {
+                DataContext.Entry(contact).State = EntityState.Modified;
+            }
+            return contact;
+        }
+
+        public virtual async Task<Contact> UpdateAsync(Contact contact)
+        {
+            var query = await Task.FromResult(Update(contact));
+            return query;
+        }
+
+        public virtual Contact Remove(Contact contact)
+        {
+            if (contact != null)
+            {
+                DbSet.Remove(contact);
+            }
+            return contact;
+        }
+
+        public virtual async Task<Contact> RemoveAsync(Contact contact)
+        {
+            var query = await Task.FromResult(contact);
+            return query;
+        }
+
+        public virtual int Commit()
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Contact>> GetAllAsync()
+        public virtual Task<int> CommitAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Contact FindById(long id)
+        public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
-        public Task<Contact> FindByIdAsync(long id)
+        public void Dispose(bool disposing)
         {
-            throw new NotImplementedException();
-        }
-
-        public Contact Insert(Contact contact)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Contact> InsertAsync(Contact contact)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Contact Update(Contact contact)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Contact> UpdateAsync(Contact contact)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Contact Remove(Contact contact)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Contact> RemoveAsync(Contact contact)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Commit()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> CommitAsync()
-        {
-            throw new NotImplementedException();
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    DataContext.Dispose();
+                }
+            }
         }
     }
 }
