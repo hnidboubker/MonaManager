@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Mona.Web.Data;
 using Mona.Web.Entities;
+using Mona.Web.ViewModels.Contacts;
 
 namespace Mona.Web.Controllers
 {
@@ -19,7 +20,24 @@ namespace Mona.Web.Controllers
         // GET: Contacts
         public async Task<ActionResult> Index()
         {
-            return View(await db.Contacts.ToListAsync());
+            var model = new List<ContactModel>();
+            var query = await db.Contacts.OrderBy(o => o.FirstName).ToListAsync();
+            if (query.Any())
+            {
+                foreach (var c in query)
+                {
+                    var builder = new ContactModel()
+                    {
+                        Id =  c.Id,
+                        Picture = c.Picture,
+                        FullName = c.FullName,
+                        PhoneNumber = c.PhoneNumber,
+                        Email = c.Email
+                    };
+                    model.Add(builder);
+                }
+            }
+            return View(model);
         }
 
         // GET: Contacts/Details/5
