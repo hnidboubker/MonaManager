@@ -236,6 +236,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Data\DefaultContext.cs" />
     <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\ContactType.cs" />
@@ -341,11 +342,15 @@
     <Content Include="Scripts\knockout.validation.min.js.map" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Contacts\Create.cshtml" />
+    <Content Include="Views\Contacts\Delete.cshtml" />
+    <Content Include="Views\Contacts\Details.cshtml" />
+    <Content Include="Views\Contacts\Edit.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Contracts\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Helpers\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Services\" />
