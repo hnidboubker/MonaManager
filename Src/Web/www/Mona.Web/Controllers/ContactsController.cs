@@ -181,8 +181,9 @@ namespace Mona.Web.Controllers
             var contact = await ContactProvider.GetContactDetails(id);
             if (model != null)
             {
+                // Todo fix bug: method dosen't working
                 
-await ContactProvider.DeleteContact(id, contact);
+                    await ContactProvider.DeleteContact(id, contact);
             }
             
             return RedirectToAction("Index");
