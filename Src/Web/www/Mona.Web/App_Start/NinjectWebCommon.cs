@@ -1,3 +1,7 @@
+using Mona.Web.Contracts;
+using Mona.Web.Providers;
+using Mona.Web.Services;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Mona.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Mona.Web.App_Start.NinjectWebCommon), "Stop")]
 
@@ -61,6 +65,20 @@ namespace Mona.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel
+                .Bind<IContactProvider>()
+                .To<ContactProvider>()
+                .InRequestScope();
+
+            kernel
+               .Bind<IContactService>()
+               .To<ContactService>()
+               .InRequestScope();
+
+            kernel
+               .Bind<IContactRepository>()
+               .To<ContactRepository>()
+               .InRequestScope();
         }        
     }
 }
