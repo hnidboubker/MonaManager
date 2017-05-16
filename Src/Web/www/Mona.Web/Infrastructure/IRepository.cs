@@ -24,7 +24,7 @@ namespace Mona.Web.Infrastructure
         Task<int> CommitAsync();
     }
 
-    public abstract class Repository<T, TKey> :IDisposable, IRepository<T, TKey> where T : class
+    public abstract class Repository<T, TKey> :IDisposable, IRepository<T, TKey> where T : class, IEntity<TKey>
     {
         protected IDbSet<T> DbSet;
         //private bool disposed;
@@ -50,7 +50,7 @@ namespace Mona.Web.Infrastructure
 
         public virtual T FindById(TKey id)
         {
-            var query = DbSet.FirstOrDefault(CreateEqualityExpressionForId(id));
+            var query = DbSet.Find(id);
             return query;
         }
 

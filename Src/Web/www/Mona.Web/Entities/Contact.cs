@@ -1,10 +1,11 @@
 ﻿using System;
+using Mona.Web.Infrastructure;
 
 namespace Mona.Web.Entities
 {
-    public class Contact
+    public class Contact : Entity<long>
     {
-        public long Id { get; set; }
+        //public long Id { get; set; }
         public int Code { get; set; }
         public string Picture { get; set; }
         public ContactType ContactType { get; set; }

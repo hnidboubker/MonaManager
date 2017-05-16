@@ -10,7 +10,7 @@ namespace Mona.Web.Infrastructure
     {
     }
 
-    public class EntityRepository<T> : Repository<T, long>, IEntityRepository<T> where T : class
+    public class EntityRepository<T> : Repository<T, long>, IEntityRepository<T> where T : class, IEntity<long>
     {
         protected DefaultContext Context;
         private readonly bool _disposed;
