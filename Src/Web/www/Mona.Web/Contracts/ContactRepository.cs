@@ -27,9 +27,10 @@ namespace Mona.Web.Contracts
 
     public class ContactRepository : IDisposable, IContactRepository
     {
-        private readonly bool disposed;
+       
         protected DefaultContext Context;
-        protected IDbSet<Contact> DbSet;
+        protected IDbSet<Contact> DbSet; 
+        private readonly bool disposed;
 
         public ContactRepository()
         {
