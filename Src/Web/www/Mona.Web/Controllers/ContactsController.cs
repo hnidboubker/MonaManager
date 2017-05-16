@@ -1,43 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Mona.Web.Data;
 using Mona.Web.Entities;
-using Mona.Web.Helpers;
+using Mona.Web.Providers;
 using Mona.Web.ViewModels.Contacts;
 
 namespace Mona.Web.Controllers
 {
     public class ContactsController : Controller
     {
-        private DefaultContext db = new DefaultContext();
+      
+        protected IContactProvider ContactProvider;
+
+        public ContactsController(IContactProvider contactProvider)
+        {
+            this.ContactProvider = contactProvider;
+        }
 
         // GET: Contacts
         public async Task<ActionResult> Index()
         {
-            var model = new List<ContactModel>();
-            var query = await db.Contacts.OrderBy(o => o.FirstName).ToListAsync();
-            if (query.Any())
-            {
-                foreach (var c in query)
-                {
-                    var builder = new ContactModel
-                    {
-                        Id =  c.Id,
-                        Picture = c.Picture,
-                        FullName = c.FullName,
-                        PhoneNumber = c.PhoneNumber,
-                        Email = c.Email
-                    };
-                    model.Add(builder);
-                }
-            }
+            var model = await ContactProvider.GetContacts();
             return View(model);                                  
         }
 
@@ -48,25 +34,16 @@ namespace Mona.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
+          
+            var model = await ContactProvider.GetContact(id);
 
-            if (contact == null)
+            if (model == null)
             {
                 return HttpNotFound();
             }
 
-            var model = new ContactDeleteOrDetailsModel
-            {
-                Code =  contact.Code,
-               Picture = contact.Picture,
-               ContactType = contact.ContactType,
-               FirstName = contact.FirstName,
-               LastName = contact.LastName,
-               PhoneNumber = contact.PhoneNumber,
-               Email = contact.Email,
-               TwiterAddress = contact.TwiterAddress,
-               FaceBookAddress = contact.FaceBookAddress
-            };
+           
+           
             return View(model);
         }
 
@@ -113,27 +90,13 @@ namespace Mona.Web.Controllers
                     file.SaveAs(Path.Combine(savePath, fileName));
                     model.Picture = fileName;
                 }
-                var contact = new Contact
-                {
-                  Id   =  new long(), 
-                  Code = CodeGeneratorHelper.GenerateCode(),
-                  ContactType = model.ContactType,
-                  
-                  
-                  FirstName = model.FirstName,
-                  LastName = model.LastName,
-                  PhoneNumber = model.PhoneNumber,
-                  Email = model.Email,
-                  TwiterAddress = model.TwiterAddress,
-                  FaceBookAddress = model.FaceBookAddress
-
-                };
+                var contact = new Contact();
+               
                 if (file != null)
                 {
                     contact.Picture = model.Picture;
                 }
-                db.Contacts.Add(contact);
-                await db.SaveChangesAsync();
+                await ContactProvider.CreateContact(model);
                 return RedirectToAction("Index");
             }
 
@@ -147,23 +110,12 @@ namespace Mona.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
-            if (contact == null)
+            var model = await ContactProvider.GetContact(id);
+            if (model == null)
             {
                 return HttpNotFound();
             }
-            var model = new ContactAddOrUpdateModel
-            {
-                Code = contact.Code,
-                Picture = contact.Picture,
-                ContactType = contact.ContactType,
-                FirstName = contact.FirstName,
-                LastName = contact.LastName,
-                PhoneNumber = contact.PhoneNumber,
-                Email = contact.Email,
-                TwiterAddress = contact.TwiterAddress,
-                FaceBookAddress = contact.FaceBookAddress
-            };
+            
             return View(model);
         }
 
@@ -203,24 +155,13 @@ namespace Mona.Web.Controllers
                     file.SaveAs(Path.Combine(savePath, fileName));
                     model.Picture = fileName;
                 }
-                var contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
-                if (model != null)
-                {
-                    
-                    contact.ContactType = model.ContactType;
-                    contact.FirstName = model.FirstName;
-                    contact.LastName = model.LastName;
-                    contact.PhoneNumber = model.PhoneNumber;
-                    contact.Email = model.Email;
-                    contact.TwiterAddress = model.TwiterAddress;
-                    contact.FaceBookAddress = model.FaceBookAddress;
-                }
+                var contact = await ContactProvider.GetContact(id);
+                
                 if (file != null)
                 {
                     contact.Picture = model.Picture;
                 }
-                db.Entry(contact).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                await ContactProvider.UpdateContact(id, model);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -233,23 +174,12 @@ namespace Mona.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
-            if (contact == null)
+            var model = await ContactProvider.GetContactDetails(id);
+            if (model == null)
             {
                 return HttpNotFound();
             }
-            var model = new  ContactDeleteOrDetailsModel
-            {
-                Code = contact.Code,
-                Picture = contact.Picture,
-                ContactType = contact.ContactType,
-                FirstName = contact.FirstName,
-                LastName = contact.LastName,
-                PhoneNumber = contact.PhoneNumber,
-                Email = contact.Email,
-                TwiterAddress = contact.TwiterAddress,
-                FaceBookAddress = contact.FaceBookAddress
-            };
+           
             return View(model);
         }
 
@@ -258,9 +188,7 @@ namespace Mona.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
-            Contact contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
-            db.Contacts.Remove(contact);
-            await db.SaveChangesAsync();
+            await ContactProvider.DeleteContact(id);
             return RedirectToAction("Index");
         }
 

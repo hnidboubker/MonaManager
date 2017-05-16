@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using Mona.Web.Entities;
 using Mona.Web.Helpers;
 using Mona.Web.Services;
@@ -104,8 +105,13 @@ namespace Mona.Web.Providers
                 FaceBookAddress = model.FaceBookAddress
 
             };
-
-           await Service.InsertAsync(contact);
+            HttpPostedFileBase file = null;
+            if (false)
+            {
+                contact.Picture = model.Picture;
+            }
+            
+            await Service.InsertAsync(contact);
             // Todo do test if it works if not implement commit directly in the controller
             await Service.CommitAsync();
            
