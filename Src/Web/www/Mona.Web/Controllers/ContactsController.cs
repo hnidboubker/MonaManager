@@ -160,9 +160,9 @@ namespace Mona.Web.Controllers
         }
 
         // GET: Contacts/Delete/5
-        public async Task<ActionResult> Delete(long? id)
+        public async Task<ActionResult> Delete(long id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -171,7 +171,19 @@ namespace Mona.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            var model = new ContactAddOrUpdateModel()
+            {
+                Code = contact.Code,
+                Picture = contact.Picture,
+                ContactType = contact.ContactType,
+                FirstName = contact.FirstName,
+                LastName = contact.LastName,
+                PhoneNumber = contact.PhoneNumber,
+                Email = contact.Email,
+                TwiterAddress = contact.TwiterAddress,
+                FaceBookAddress = contact.FaceBookAddress
+            };
+            return View(model);
         }
 
         // POST: Contacts/Delete/5
@@ -185,13 +197,6 @@ namespace Mona.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+       
     }
 }
