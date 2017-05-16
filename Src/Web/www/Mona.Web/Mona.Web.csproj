@@ -244,6 +244,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705161137525_MigrationStart.cs" />
+    <Compile Include="Migrations\201705161137525_MigrationStart.Designer.cs">
+      <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Contacts\ContactAddOrUpdateModel.cs" />
@@ -359,6 +364,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705161137525_MigrationStart.resx">
+      <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
