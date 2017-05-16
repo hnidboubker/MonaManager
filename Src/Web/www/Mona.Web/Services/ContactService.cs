@@ -27,7 +27,8 @@ namespace Mona.Web.Services
     {
         protected new IContactRepository Repository;
 
-        public ContactService(IContactRepository repository)
+        public ContactService(IUnitOfWork unitOfWork, IContactRepository repository)
+            :base(unitOfWork)
         {
             base.Repository = Repository = repository;
         }

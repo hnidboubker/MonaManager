@@ -24,6 +24,12 @@ namespace Mona.Web.Infrastructure
     public abstract class Service<T, TKey> : IService<T, TKey> where T : class
     {
         protected IRepository<T, TKey> Repository;
+        protected IUnitOfWork UnitOfWork;
+
+        protected Service(IUnitOfWork unitOfWork)
+        {
+            UnitOfWork = unitOfWork;
+        }
 
         public virtual IQueryable<T> GetAll()
         {
@@ -89,13 +95,13 @@ namespace Mona.Web.Infrastructure
 
         public virtual int Commit()
         {
-            var result = Repository.Commit();
+            var result = UnitOfWork.Commit();
             return result;
         }
 
         public virtual Task<int> CommitAsync()
         {
-            var result = Repository.CommitAsync();
+            var result = UnitOfWork.CommitAsync();
             return result;
         }
     }
