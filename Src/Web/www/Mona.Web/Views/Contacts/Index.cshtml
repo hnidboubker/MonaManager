@@ -35,7 +35,14 @@
     <tr>
        
         <td>
-            @Html.DisplayFor(modelItem => item.Picture)
+           @if (String.IsNullOrEmpty(@item.Picture))
+           {
+                <img src="/Assets/imgs/persons/default_profile.png" alt="" width="65"/>
+           }
+           else
+           {
+                <img src="/Assets/imgs/persons/@item.Picture" alt="" />
+           }
         </td>
        
         <td>
