@@ -244,6 +244,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CodeGeneratorHelper.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.Designer.cs">
       <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
@@ -357,7 +358,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Contracts\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModels\Customers\" />
