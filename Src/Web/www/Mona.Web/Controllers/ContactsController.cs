@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using Microsoft.Owin.Security.Twitter;
 using Mona.Web.Data;
 using Mona.Web.Entities;
+using Mona.Web.Helpers;
 using Mona.Web.ViewModels.Contacts;
 
 namespace Mona.Web.Controllers
@@ -87,7 +88,7 @@ namespace Mona.Web.Controllers
                 var contact = new Contact()
                 {
                   Id   =  new long(), 
-                  Code = model.Code,
+                  Code = CodeGeneratorHelper.GenerateCode(),
                   ContactType = model.ContactType,
                   Picture = model.Picture,
                   FirstName = model.FirstName,
