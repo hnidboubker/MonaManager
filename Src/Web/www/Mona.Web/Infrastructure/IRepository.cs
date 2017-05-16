@@ -35,6 +35,7 @@ namespace Mona.Web.Infrastructure
         protected Repository(IEntityContextFactory entityContextFactory)
         {
             EntityContextFactory = entityContextFactory;
+            DbSet = DataContext.DbSet<T>();
             //disposed = false;
         }
 

@@ -16,6 +16,8 @@ namespace Mona.Web.Contracts
 
     public class ContactRepository : EntityRepository<Contact>, IContactRepository
     {
-      
+        public ContactRepository(IEntityContextFactory entityContextFactory) : base(entityContextFactory)
+        {
+        }
     }
 }

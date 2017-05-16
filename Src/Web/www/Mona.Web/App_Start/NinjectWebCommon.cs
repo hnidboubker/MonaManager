@@ -3,6 +3,7 @@ using System.Web;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Mona.Web.App_Start;
 using Mona.Web.Contracts;
+using Mona.Web.Infrastructure;
 using Mona.Web.Providers;
 using Mona.Web.Services;
 using Ninject;
@@ -64,6 +65,11 @@ namespace Mona.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel
+                .Bind<IEntityContextFactory>()
+                .To<EntityContextFactory>()
+                .InRequestScope();
+
             kernel
                 .Bind<IContactProvider>()
                 .To<ContactProvider>()
