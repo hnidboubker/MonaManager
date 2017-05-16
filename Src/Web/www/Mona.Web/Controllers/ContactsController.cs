@@ -170,10 +170,39 @@ namespace Mona.Web.Controllers
         // POST: Contacts/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(long id, ContactAddOrUpdateModel model)
+        public async Task<ActionResult> Edit(long id, ContactAddOrUpdateModel model, HttpPostedFileBase file)
         {
+            if (file != null)
+            {
+                if (file.ContentLength > (512 * 1000))
+                {
+                    ModelState.AddModelError("FileErrorMessage", "File size must within 512 KB !");
+                }
+
+                string[] allowedSettings = new[] { "image/png", "image/gif", "image/jpg", "image/jpeg" };
+                bool isFileSettingsValid = false;
+                foreach (var allowedSetting in allowedSettings)
+                {
+                    if (file.ContentType == allowedSetting)
+                    {
+                        isFileSettingsValid = true;
+                        break;
+                    }
+                }
+                if (!isFileSettingsValid)
+                {
+                    ModelState.AddModelError("FileErrorMessage", "Only .png .gif .jpg and .jpeg file is allowed !");
+                }
+            }
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    string savePath = Server.MapPath("~/Assets/imgs/persons");
+                    string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                    file.SaveAs(Path.Combine(savePath, fileName));
+                    model.Picture = fileName;
+                }
                 var contact = await db.Contacts.FirstOrDefaultAsync(o => o.Id == id);
                 if (model != null)
                 {
@@ -185,6 +214,10 @@ namespace Mona.Web.Controllers
                     contact.Email = model.Email;
                     contact.TwiterAddress = model.TwiterAddress;
                     contact.FaceBookAddress = model.FaceBookAddress;
+                }
+                if (file != null)
+                {
+                    contact.Picture = model.Picture;
                 }
                 db.Entry(contact).State = EntityState.Modified;
                 await db.SaveChangesAsync();
