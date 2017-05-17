@@ -217,6 +217,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\elements\badges.css" />
+    <Content Include="Assets\elements\boxes.css" />
+    <Content Include="Assets\elements\buttons.css" />
+    <Content Include="Assets\elements\calendars.css" />
+    <Content Include="Assets\elements\navs.css" />
+    <Content Include="Assets\elements\panels.css" />
+    <Content Include="Assets\elements\tables.css" />
+    <Content Include="Assets\elements\timelines.css" />
     <Content Include="Assets\plugging\boot\css\bootstrap-theme.css" />
     <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css" />
     <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css.map" />
@@ -253,6 +261,8 @@
     <Content Include="Assets\plugging\res\respond.min.js" />
     <Content Include="Assets\plugging\sam\sammy-0.7.5.js" />
     <Content Include="Assets\plugging\sam\sammy-0.7.5.min.js" />
+    <Content Include="Assets\mona\base.css" />
+    <Content Include="Assets\mona\layout.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\ionicons.svg" />
@@ -311,8 +321,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\css\" />
+    <Folder Include="Assets\themes\" />
     <Folder Include="Assets\vendors\" />
+    <Folder Include="Assets\widgets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
