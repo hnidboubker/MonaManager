@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Web", "Src\Web\www\Mona.Web\Mona.Web.csproj", "{4C42F42E-7521-4BE1-BB06-8084F4349367}"
+	ProjectSection(ProjectDependencies) = postProject
+		{17328B2A-D7F8-4284-9848-9D5C4A8B4DE3} = {17328B2A-D7F8-4284-9848-9D5C4A8B4DE3}
+		{59876AAC-6A88-4AB4-9754-A15475F52AA2} = {59876AAC-6A88-4AB4-9754-A15475F52AA2}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{804A0BDF-DC53-432C-86BC-EBEE9EB72CEE}"
 	ProjectSection(SolutionItems) = preProject

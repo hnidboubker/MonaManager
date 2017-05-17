@@ -348,6 +348,16 @@
       <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Server\Core\Mona.Server.Data\Mona.Server.Data.csproj">
+      <Project>{17328b2a-d7f8-4284-9848-9d5c4a8b4de3}</Project>
+      <Name>Mona.Server.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Core\Mona.Server.Domain\Mona.Server.Domain.csproj">
+      <Project>{59876aac-6a88-4ab4-9754-a15475f52aa2}</Project>
+      <Name>Mona.Server.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
