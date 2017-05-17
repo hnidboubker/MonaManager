@@ -274,8 +274,10 @@
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Assets\plugging\boot\css\bootstrap-theme.css" />
     <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css.map" />
     <Content Include="Assets\plugging\boot\css\bootstrap.css" />
     <Content Include="Assets\plugging\boot\css\bootstrap.min.css" />
+    <Content Include="Assets\plugging\boot\css\bootstrap.min.css.map" />
     <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\plugging\boot\js\bootstrap.js" />
     <Content Include="Assets\plugging\boot\js\bootstrap.min.js" />
@@ -293,7 +295,6 @@
     <Content Include="Assets\plugging\res\respond.min.js" />
     <Content Include="Assets\plugging\sam\sammy-0.7.5.js" />
     <Content Include="Assets\plugging\sam\sammy-0.7.5.min.js" />
-   
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\ionicons.svg" />
@@ -341,9 +342,7 @@
     <Content Include="Content\fonts\ionicons.ttf" />
     <Content Include="Content\fonts\ionicons.eot" />
     <Content Include="Assets\plugging\boot\css\bootstrap-theme.css.map" />
-    <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css.map" />
     <Content Include="Assets\plugging\boot\css\bootstrap.css.map" />
-    <Content Include="Assets\plugging\boot\css\bootstrap.min.css.map" />
     <Content Include="Assets\plugging\ionics\fonts\ionicons.eot" />
     <Content Include="Assets\plugging\ionics\fonts\ionicons.ttf" />
     <Content Include="Assets\plugging\ionics\fonts\ionicons.woff" />
