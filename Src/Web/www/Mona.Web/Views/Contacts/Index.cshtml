@@ -5,11 +5,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="row" style="margin-top: 35px; margin-bottom: 15px;">
+    <div class="pull-right">
+        <a class="btn btn-success" href="@Url.Action("Create", "Contacts")">
+            <i class="fa fa-pencil fa-2x"></i>
+        </a>
+    </div>
+    
+</div>
 <table class="table">
     <tr>
        
