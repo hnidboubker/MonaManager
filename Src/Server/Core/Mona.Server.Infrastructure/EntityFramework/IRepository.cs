@@ -22,8 +22,7 @@ namespace Mona.Server.Infrastructure.EntityFramework
         Task<T> UpdateAsync(T entity);
         T Remove(T contact);
         Task<T> RemoveAsync(T entity);
-        //int Commit();
-        //Task<int> CommitAsync();
+       
     }
 
     public abstract class Repository<T, TKey> : IDisposable, IRepository<T, TKey> where T : class, IEntity<TKey>
@@ -31,13 +30,13 @@ namespace Mona.Server.Infrastructure.EntityFramework
         protected IDataContext Context;
         protected IDbSet<T> DbSet;
         protected IEntityContextFactory EntityContextFactory;
-        //private bool disposed;
+       
 
         protected Repository(IEntityContextFactory entityContextFactory)
         {
             EntityContextFactory = entityContextFactory;
             DbSet = DataContext.DbSet<T>();
-            //disposed = false;
+            
         }
 
         public IDataContext DataContext
@@ -130,11 +129,6 @@ namespace Mona.Server.Infrastructure.EntityFramework
             return Expression.Lambda<Func<T, bool>>(lambdaBody, lambdaParam);
         }
 
-        // Todo Move it to Unit work after 
-        //public abstract int Commit();
-
-
-        //public abstract Task<int> CommitAsync();
 
         public abstract void Dispose(bool disposing);
     }
