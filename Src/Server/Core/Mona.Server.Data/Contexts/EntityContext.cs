@@ -1,4 +1,4 @@
-﻿namespace Mona.Web.Data
+﻿namespace Mona.Server.Data.Contexts
 {
     public class EntityContext : DataContext<EntityContext>
     {

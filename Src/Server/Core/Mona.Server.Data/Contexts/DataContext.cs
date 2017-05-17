@@ -6,9 +6,9 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Entity.Validation;
 using System.Threading;
 using System.Threading.Tasks;
-using Mona.Web.Common;
+using Mona.Server.Data.Common;
 
-namespace Mona.Web.Data
+namespace Mona.Server.Data.Contexts
 {
     public class DataContext<TContext> : DbContext, IDataContext where TContext : DbContext
     {

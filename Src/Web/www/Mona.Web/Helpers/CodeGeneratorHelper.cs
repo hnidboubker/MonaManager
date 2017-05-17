@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mona.Web.Data;
-using Mona.Web.Entities;
+using Mona.Server.Data.Contexts;
+using Mona.Server.Domain.Entities;
 
 namespace Mona.Web.Helpers
 {

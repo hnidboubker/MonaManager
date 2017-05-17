@@ -4,7 +4,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 
-namespace Mona.Web.Common
+namespace Mona.Server.Data.Common
 {
     // see original issue code her http://stackoverflow.com/questions/7795300/validation-failed-for-one-or-more-entities-see-entityvalidationerrors-propert?noredirect=1&lq=1
     [Serializable]

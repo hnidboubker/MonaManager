@@ -1,5 +1,5 @@
 using System.Data.Entity.Migrations;
-using Mona.Web.Data;
+using Mona.Server.Data.Contexts;
 
 namespace Mona.Web.Migrations
 {

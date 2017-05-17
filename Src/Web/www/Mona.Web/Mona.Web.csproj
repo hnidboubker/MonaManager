@@ -208,26 +208,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Contracts\ContactRepository.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\DataContext.cs" />
-    <Compile Include="Data\DefaultContext.cs" />
-    <Compile Include="Common\FormattedDbEntityValidationException.cs" />
-    <Compile Include="Data\EntityContext.cs" />
-    <Compile Include="Entities\Contact.cs" />
-    <Compile Include="Entities\ContactType.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CodeGeneratorHelper.cs" />
-    <Compile Include="Infrastructure\EntityContextFactory.cs" />
-    <Compile Include="Infrastructure\EntityRepository.cs" />
-    <Compile Include="Infrastructure\EntityService.cs" />
-    <Compile Include="Infrastructure\IEntity.cs" />
-    <Compile Include="Infrastructure\IRepository.cs" />
-    <Compile Include="Infrastructure\Service.cs" />
-    <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.Designer.cs">
       <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
@@ -235,7 +221,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ContactProvider.cs" />
-    <Compile Include="Services\ContactService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Contacts\ContactAddOrUpdateModel.cs" />
     <Compile Include="ViewModels\Contacts\ContactDeleteOrDetailsModel.cs" />
@@ -349,6 +334,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Server\Common\Mona.Server.Common\Mona.Server.Common.csproj">
+      <Project>{a39e8eb1-97b8-4aab-a7b8-e3ed3e22b4c7}</Project>
+      <Name>Mona.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Contracts\Mona.Server.Contract\Mona.Server.Contract.csproj">
+      <Project>{ddf2507a-6f13-4ac4-abf1-927f95e3eddd}</Project>
+      <Name>Mona.Server.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Core\Mona.Server.Configuration\Mona.Server.Configuration.csproj">
+      <Project>{8bbaf64b-ec27-4153-9fbf-e7f9d8da558d}</Project>
+      <Name>Mona.Server.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Server\Core\Mona.Server.Data\Mona.Server.Data.csproj">
       <Project>{17328b2a-d7f8-4284-9848-9d5c4a8b4de3}</Project>
       <Name>Mona.Server.Data</Name>
@@ -356,6 +353,14 @@
     <ProjectReference Include="..\..\..\Server\Core\Mona.Server.Domain\Mona.Server.Domain.csproj">
       <Project>{59876aac-6a88-4ab4-9754-a15475f52aa2}</Project>
       <Name>Mona.Server.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Core\Mona.Server.Infrastructure\Mona.Server.Infrastructure.csproj">
+      <Project>{46020b5a-76de-4a52-9237-ce0b81775cbc}</Project>
+      <Name>Mona.Server.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Services\Mona.Server.Services\Mona.Server.Services.csproj">
+      <Project>{e8d7d9d6-e673-44d7-be99-a3d810a106ed}</Project>
+      <Name>Mona.Server.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

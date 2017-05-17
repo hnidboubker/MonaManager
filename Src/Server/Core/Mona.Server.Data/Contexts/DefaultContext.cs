@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
-using Mona.Web.Entities;
+using Mona.Server.Domain.Entities;
 
-namespace Mona.Web.Data
+namespace Mona.Server.Data.Contexts
 {
     public class DefaultContext : EntityContext
     {

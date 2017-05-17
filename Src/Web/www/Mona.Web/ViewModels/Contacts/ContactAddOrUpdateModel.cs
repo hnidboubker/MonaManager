@@ -1,4 +1,4 @@
-﻿using Mona.Web.Entities;
+﻿using Mona.Server.Domain.Entities;
 
 namespace Mona.Web.ViewModels.Contacts
 {

@@ -3,9 +3,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using Mona.Web.Entities;
+using Mona.Server.Domain.Entities;
+using Mona.Server.Services.Contacts;
 using Mona.Web.Helpers;
-using Mona.Web.Services;
 using Mona.Web.ViewModels.Contacts;
 
 namespace Mona.Web.Providers
