@@ -1,6 +1,6 @@
 using System.Data.Entity.Migrations;
 
-namespace Mona.Web.Migrations
+namespace Mona.Server.Data.Migrations
 {
     public partial class MigrationStart : DbMigration
     {

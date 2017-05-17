@@ -1,7 +1,7 @@
 using System.Data.Entity.Migrations;
 using Mona.Server.Data.Contexts;
 
-namespace Mona.Web.Migrations
+namespace Mona.Server.Data.Migrations
 {
     internal sealed class Configuration : DbMigrationsConfiguration<DefaultContext>
     {
