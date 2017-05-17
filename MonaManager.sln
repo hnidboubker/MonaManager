@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Contract", "Src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Services", "Src\Server\Services\Mona.Server.Services\Mona.Server.Services.csproj", "{E8D7D9D6-E673-44D7-BE99-A3D810A106ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Web.Core", "Src\Web\Core\Mona.Web.Core\Mona.Web.Core.csproj", "{6C02EF30-8D66-4B81-B781-50AE2B9D4241}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{E8D7D9D6-E673-44D7-BE99-A3D810A106ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8D7D9D6-E673-44D7-BE99-A3D810A106ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8D7D9D6-E673-44D7-BE99-A3D810A106ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C02EF30-8D66-4B81-B781-50AE2B9D4241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C02EF30-8D66-4B81-B781-50AE2B9D4241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C02EF30-8D66-4B81-B781-50AE2B9D4241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C02EF30-8D66-4B81-B781-50AE2B9D4241}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

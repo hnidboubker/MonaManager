@@ -1,6 +1,6 @@
 ﻿using Mona.Server.Domain.Entities;
 
-namespace Mona.Web.ViewModels.Contacts
+namespace Mona.Web.Core.ViewModels.Contacts
 {
     public class ContactAddOrUpdateModel
     {

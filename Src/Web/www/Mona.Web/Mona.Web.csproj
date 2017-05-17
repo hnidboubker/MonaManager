@@ -213,18 +213,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\CodeGeneratorHelper.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.Designer.cs">
       <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\ContactProvider.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\Contacts\ContactAddOrUpdateModel.cs" />
-    <Compile Include="ViewModels\Contacts\ContactDeleteOrDetailsModel.cs" />
-    <Compile Include="ViewModels\Contacts\ContactModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\plugging\boot\css\bootstrap-theme.css" />
@@ -323,7 +318,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Assets\css\" />
     <Folder Include="Assets\vendors\" />
-    <Folder Include="ViewModels\Customers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -361,6 +355,10 @@
     <ProjectReference Include="..\..\..\Server\Services\Mona.Server.Services\Mona.Server.Services.csproj">
       <Project>{e8d7d9d6-e673-44d7-be99-a3d810a106ed}</Project>
       <Name>Mona.Server.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Mona.Web.Core\Mona.Web.Core.csproj">
+      <Project>{6c02ef30-8d66-4b81-b781-50ae2b9d4241}</Project>
+      <Name>Mona.Web.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

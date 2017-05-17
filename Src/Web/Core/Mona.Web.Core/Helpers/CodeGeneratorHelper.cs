@@ -4,7 +4,7 @@ using System.Linq;
 using Mona.Server.Data.Contexts;
 using Mona.Server.Domain.Entities;
 
-namespace Mona.Web.Helpers
+namespace Mona.Web.Core.Helpers
 {
     public class CodeGeneratorHelper
     {

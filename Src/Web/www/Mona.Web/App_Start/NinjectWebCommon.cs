@@ -5,7 +5,7 @@ using Mona.Server.Contract.Contacts;
 using Mona.Server.Infrastructure.EntityFramework;
 using Mona.Server.Services.Contacts;
 using Mona.Web;
-using Mona.Web.Providers;
+using Mona.Web.Core.Providers;
 using Ninject;
 using Ninject.Web.Common;
 using WebActivatorEx;

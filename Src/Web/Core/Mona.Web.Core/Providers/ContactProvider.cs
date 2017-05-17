@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using System.Web;
 using Mona.Server.Domain.Entities;
 using Mona.Server.Services.Contacts;
-using Mona.Web.Helpers;
-using Mona.Web.ViewModels.Contacts;
+using Mona.Web.Core.Helpers;
+using Mona.Web.Core.ViewModels.Contacts;
 
-namespace Mona.Web.Providers
+namespace Mona.Web.Core.Providers
 {
     public interface IContactProvider
     {
