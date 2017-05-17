@@ -1,4 +1,5 @@
 ﻿using System;
+using Mona.Server.Common.Domain;
 
 namespace Mona.Server.Domain.Entities
 {

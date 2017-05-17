@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{59876AAC-6A88-4AB4-9754-A15475F52AA2}</ProjectGuid>
+    <ProjectGuid>{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mona.Server.Domain</RootNamespace>
-    <AssemblyName>Mona.Server.Domain</AssemblyName>
+    <RootNamespace>Mona.Server.Contract</RootNamespace>
+    <AssemblyName>Mona.Server.Contract</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,14 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Contact.cs" />
-    <Compile Include="Entities\ContactType.cs" />
+    <Compile Include="Contacts\ContactRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Mona.Server.Common\Mona.Server.Common.csproj">
       <Project>{a39e8eb1-97b8-4aab-a7b8-e3ed3e22b4c7}</Project>
       <Name>Mona.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Mona.Server.Domain\Mona.Server.Domain.csproj">
+      <Project>{59876aac-6a88-4ab4-9754-a15475f52aa2}</Project>
+      <Name>Mona.Server.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Mona.Server.Infrastructure\Mona.Server.Infrastructure.csproj">
+      <Project>{46020b5a-76de-4a52-9237-ce0b81775cbc}</Project>
+      <Name>Mona.Server.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

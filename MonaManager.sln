@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Infrastructure"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Common", "Src\Server\Common\Mona.Server.Common\Mona.Server.Common.csproj", "{A39E8EB1-97B8-4AAB-A7B8-E3ED3E22B4C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Contract", "Src\Server\Contracts\Mona.Server.Contract\Mona.Server.Contract.csproj", "{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{A39E8EB1-97B8-4AAB-A7B8-E3ED3E22B4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A39E8EB1-97B8-4AAB-A7B8-E3ED3E22B4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A39E8EB1-97B8-4AAB-A7B8-E3ED3E22B4C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
