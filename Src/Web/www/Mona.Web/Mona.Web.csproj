@@ -281,13 +281,26 @@
     <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\plugging\boot\js\bootstrap.js" />
     <Content Include="Assets\plugging\boot\js\bootstrap.min.js" />
+    <Content Include="Assets\plugging\fa\css\font-awesome.css" />
+    <Content Include="Assets\plugging\fa\css\font-awesome.min.css" />
+    <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\plugging\ionics\fonts\ionicons.svg" />
     <Content Include="Assets\imgs\persons\default_profile.png" />
+    <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\plugging\fa\fonts\FontAwesome.otf" />
     <None Include="Assets\plugging\jq\js\jquery-3.1.1.intellisense.js" />
+    <Content Include="Assets\plugging\ionics\ionicons\css\ionicons.css" />
     <Content Include="Assets\plugging\jq\js\jquery-3.1.1.js" />
     <Content Include="Assets\plugging\jq\js\jquery-3.1.1.min.js" />
     <Content Include="Assets\plugging\jq\js\jquery-3.1.1.slim.js" />
     <Content Include="Assets\plugging\jq\js\jquery-3.1.1.slim.min.js" />
+    <Content Include="Assets\plugging\ko\js\knockout-3.4.2.debug.js" />
+    <Content Include="Assets\plugging\ko\js\knockout-3.4.2.js" />
+    <Content Include="Assets\plugging\ko\js\knockout.validation.js" />
+    <Content Include="Assets\plugging\ko\js\knockout.validation.min.js" />
     <Content Include="Assets\plugging\mo\modernizr-2.8.3.js" />
     <Content Include="Assets\plugging\res\respond.js" />
     <Content Include="Assets\plugging\res\respond.matchmedia.addListener.js" />
@@ -379,10 +392,12 @@
     <Content Include="Views\Contacts\Details.cshtml" />
     <Content Include="Views\Contacts\Edit.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Assets\plugging\ko\js\knockout.validation.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\css\" />
+    <Folder Include="Assets\vendors\" />
     <Folder Include="ViewModels\Customers\" />
   </ItemGroup>
   <ItemGroup>
