@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Mona.Server.Common.Domain;
+using Mona.Server.Data.Contexts;
 
 namespace Mona.Server.Infrastructure.EntityFramework
 {

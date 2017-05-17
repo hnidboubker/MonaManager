@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.Entity;
+using Mona.Server.Common.Domain;
 
 namespace Mona.Server.Infrastructure.EntityFramework
 {

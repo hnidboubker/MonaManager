@@ -59,6 +59,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Mona.Server.Common\Mona.Server.Common.csproj">
+      <Project>{A39E8EB1-97B8-4AAB-A7B8-E3ED3E22B4C7}</Project>
+      <Name>Mona.Server.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mona.Server.Data\Mona.Server.Data.csproj">
       <Project>{17328b2a-d7f8-4284-9848-9d5c4a8b4de3}</Project>
       <Name>Mona.Server.Data</Name>
