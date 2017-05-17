@@ -272,7 +272,27 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Assets\plugging\boot\css\bootstrap-theme.css" />
+    <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\plugging\boot\css\bootstrap.css" />
+    <Content Include="Assets\plugging\boot\css\bootstrap.min.css" />
+    <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\plugging\boot\js\bootstrap.js" />
+    <Content Include="Assets\plugging\boot\js\bootstrap.min.js" />
+    <Content Include="Assets\plugging\ionics\fonts\ionicons.svg" />
     <Content Include="Assets\imgs\persons\default_profile.png" />
+    <None Include="Assets\plugging\jq\js\jquery-3.1.1.intellisense.js" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.js" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.min.js" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.slim.js" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.slim.min.js" />
+    <Content Include="Assets\plugging\mo\modernizr-2.8.3.js" />
+    <Content Include="Assets\plugging\res\respond.js" />
+    <Content Include="Assets\plugging\res\respond.matchmedia.addListener.js" />
+    <Content Include="Assets\plugging\res\respond.matchmedia.addListener.min.js" />
+    <Content Include="Assets\plugging\res\respond.min.js" />
+    <Content Include="Assets\plugging\sam\sammy-0.7.5.js" />
+    <Content Include="Assets\plugging\sam\sammy-0.7.5.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -323,6 +343,23 @@
     <Content Include="Content\fonts\ionicons.woff" />
     <Content Include="Content\fonts\ionicons.ttf" />
     <Content Include="Content\fonts\ionicons.eot" />
+    <Content Include="Assets\plugging\boot\css\bootstrap-theme.css.map" />
+    <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css.map" />
+    <Content Include="Assets\plugging\boot\css\bootstrap.css.map" />
+    <Content Include="Assets\plugging\boot\css\bootstrap.min.css.map" />
+    <Content Include="Assets\plugging\ionics\fonts\ionicons.eot" />
+    <Content Include="Assets\plugging\ionics\fonts\ionicons.ttf" />
+    <Content Include="Assets\plugging\ionics\fonts\ionicons.woff" />
+    <Content Include="Assets\plugging\ionics\ionicons\_ionicons-font.less" />
+    <Content Include="Assets\plugging\ionics\ionicons\_ionicons-icons.less" />
+    <Content Include="Assets\plugging\ionics\ionicons\_ionicons-variables.less" />
+    <Content Include="Assets\plugging\ionics\ionicons\ionicons.less" />
+    <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.min.map" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.slim.min.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -371,6 +408,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\css\" />
     <Folder Include="ViewModels\Customers\" />
   </ItemGroup>
   <ItemGroup>
