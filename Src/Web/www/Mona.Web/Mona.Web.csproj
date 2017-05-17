@@ -112,11 +112,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <HintPath>..\..\..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <HintPath>..\..\..\..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
@@ -193,7 +193,7 @@
       <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <HintPath>..\..\..\..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -239,14 +239,23 @@
     <Compile Include="Contracts\ContactRepository.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\DefaultContext.cs" />
     <Compile Include="Common\FormattedDbEntityValidationException.cs" />
+    <Compile Include="Data\EntityContext.cs" />
     <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\ContactType.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CodeGeneratorHelper.cs" />
+    <Compile Include="Infrastructure\EntityContextFactory.cs" />
+    <Compile Include="Infrastructure\EntityRepository.cs" />
+    <Compile Include="Infrastructure\EntityService.cs" />
+    <Compile Include="Infrastructure\IEntity.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\Service.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.cs" />
     <Compile Include="Migrations\201705161137525_MigrationStart.Designer.cs">
       <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
@@ -263,7 +272,27 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Assets\plugging\boot\css\bootstrap-theme.css" />
+    <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\plugging\boot\css\bootstrap.css" />
+    <Content Include="Assets\plugging\boot\css\bootstrap.min.css" />
+    <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\plugging\boot\js\bootstrap.js" />
+    <Content Include="Assets\plugging\boot\js\bootstrap.min.js" />
+    <Content Include="Assets\plugging\ionics\fonts\ionicons.svg" />
     <Content Include="Assets\imgs\persons\default_profile.png" />
+    <None Include="Assets\plugging\jq\js\jquery-3.1.1.intellisense.js" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.js" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.min.js" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.slim.js" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.slim.min.js" />
+    <Content Include="Assets\plugging\mo\modernizr-2.8.3.js" />
+    <Content Include="Assets\plugging\res\respond.js" />
+    <Content Include="Assets\plugging\res\respond.matchmedia.addListener.js" />
+    <Content Include="Assets\plugging\res\respond.matchmedia.addListener.min.js" />
+    <Content Include="Assets\plugging\res\respond.min.js" />
+    <Content Include="Assets\plugging\sam\sammy-0.7.5.js" />
+    <Content Include="Assets\plugging\sam\sammy-0.7.5.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -314,6 +343,23 @@
     <Content Include="Content\fonts\ionicons.woff" />
     <Content Include="Content\fonts\ionicons.ttf" />
     <Content Include="Content\fonts\ionicons.eot" />
+    <Content Include="Assets\plugging\boot\css\bootstrap-theme.css.map" />
+    <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css.map" />
+    <Content Include="Assets\plugging\boot\css\bootstrap.css.map" />
+    <Content Include="Assets\plugging\boot\css\bootstrap.min.css.map" />
+    <Content Include="Assets\plugging\ionics\fonts\ionicons.eot" />
+    <Content Include="Assets\plugging\ionics\fonts\ionicons.ttf" />
+    <Content Include="Assets\plugging\ionics\fonts\ionicons.woff" />
+    <Content Include="Assets\plugging\ionics\ionicons\_ionicons-font.less" />
+    <Content Include="Assets\plugging\ionics\ionicons\_ionicons-icons.less" />
+    <Content Include="Assets\plugging\ionics\ionicons\_ionicons-variables.less" />
+    <Content Include="Assets\plugging\ionics\ionicons\ionicons.less" />
+    <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.min.map" />
+    <Content Include="Assets\plugging\jq\js\jquery-3.1.1.slim.min.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -362,7 +408,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Infrastructure\" />
+    <Folder Include="Assets\css\" />
     <Folder Include="ViewModels\Customers\" />
   </ItemGroup>
   <ItemGroup>
