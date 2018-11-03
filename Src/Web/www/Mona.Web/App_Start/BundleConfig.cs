@@ -62,7 +62,7 @@ namespace Mona.Web
                 .IncludeDirectory("~/Assets/pugging/mo/", "modernizr-{version}.js")
                  .IncludeDirectory("~/Assets/pugging/jq/js", "jquery-{version}.js")
                 .IncludeDirectory("~/Assets/pugging/boot/js","bootstrap.js")
-                .IncludeDirectory("~/Assets/plugging/res","respond.js")
+                .IncludeDirectory("~/Assets/plugging/res/","respond.js")
                 .IncludeDirectory("~/Assets/plugging/sam","sammy-{version}.js")
                 );
             //bundles.Add(new ScriptBundle("~/bundles/plugging")
