@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Web", "Src\Web\www\Mona.Web\Mona.Web.csproj", "{4C42F42E-7521-4BE1-BB06-8084F4349367}"
+	ProjectSection(ProjectDependencies) = postProject
+		{17328B2A-D7F8-4284-9848-9D5C4A8B4DE3} = {17328B2A-D7F8-4284-9848-9D5C4A8B4DE3}
+		{59876AAC-6A88-4AB4-9754-A15475F52AA2} = {59876AAC-6A88-4AB4-9754-A15475F52AA2}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{804A0BDF-DC53-432C-86BC-EBEE9EB72CEE}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,6 +15,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{804A0B
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Web.UnitTests", "Src\Web\UnitTests\Mona.Web.UnitTests\Mona.Web.UnitTests.csproj", "{DE8CBE53-5ECB-42FD-92C4-869448ACC840}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Data", "Src\Server\Core\Mona.Server.Data\Mona.Server.Data.csproj", "{17328B2A-D7F8-4284-9848-9D5C4A8B4DE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Domain", "Src\Server\Core\Mona.Server.Domain\Mona.Server.Domain.csproj", "{59876AAC-6A88-4AB4-9754-A15475F52AA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Configuration", "Src\Server\Core\Mona.Server.Configuration\Mona.Server.Configuration.csproj", "{8BBAF64B-EC27-4153-9FBF-E7F9D8DA558D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Infrastructure", "Src\Server\Core\Mona.Server.Infrastructure\Mona.Server.Infrastructure.csproj", "{46020B5A-76DE-4A52-9237-CE0B81775CBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Common", "Src\Server\Common\Mona.Server.Common\Mona.Server.Common.csproj", "{A39E8EB1-97B8-4AAB-A7B8-E3ED3E22B4C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Contract", "Src\Server\Contracts\Mona.Server.Contract\Mona.Server.Contract.csproj", "{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Server.Services", "Src\Server\Services\Mona.Server.Services\Mona.Server.Services.csproj", "{E8D7D9D6-E673-44D7-BE99-A3D810A106ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mona.Web.Core", "Src\Web\Core\Mona.Web.Core\Mona.Web.Core.csproj", "{6C02EF30-8D66-4B81-B781-50AE2B9D4241}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +44,42 @@ Global
 		{4C42F42E-7521-4BE1-BB06-8084F4349367}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C42F42E-7521-4BE1-BB06-8084F4349367}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C42F42E-7521-4BE1-BB06-8084F4349367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8CBE53-5ECB-42FD-92C4-869448ACC840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8CBE53-5ECB-42FD-92C4-869448ACC840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8CBE53-5ECB-42FD-92C4-869448ACC840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8CBE53-5ECB-42FD-92C4-869448ACC840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17328B2A-D7F8-4284-9848-9D5C4A8B4DE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17328B2A-D7F8-4284-9848-9D5C4A8B4DE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17328B2A-D7F8-4284-9848-9D5C4A8B4DE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17328B2A-D7F8-4284-9848-9D5C4A8B4DE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59876AAC-6A88-4AB4-9754-A15475F52AA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59876AAC-6A88-4AB4-9754-A15475F52AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59876AAC-6A88-4AB4-9754-A15475F52AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59876AAC-6A88-4AB4-9754-A15475F52AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BBAF64B-EC27-4153-9FBF-E7F9D8DA558D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BBAF64B-EC27-4153-9FBF-E7F9D8DA558D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BBAF64B-EC27-4153-9FBF-E7F9D8DA558D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BBAF64B-EC27-4153-9FBF-E7F9D8DA558D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46020B5A-76DE-4A52-9237-CE0B81775CBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46020B5A-76DE-4A52-9237-CE0B81775CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46020B5A-76DE-4A52-9237-CE0B81775CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46020B5A-76DE-4A52-9237-CE0B81775CBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A39E8EB1-97B8-4AAB-A7B8-E3ED3E22B4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A39E8EB1-97B8-4AAB-A7B8-E3ED3E22B4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A39E8EB1-97B8-4AAB-A7B8-E3ED3E22B4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A39E8EB1-97B8-4AAB-A7B8-E3ED3E22B4C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF2507A-6F13-4AC4-ABF1-927F95E3EDDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8D7D9D6-E673-44D7-BE99-A3D810A106ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8D7D9D6-E673-44D7-BE99-A3D810A106ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8D7D9D6-E673-44D7-BE99-A3D810A106ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8D7D9D6-E673-44D7-BE99-A3D810A106ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C02EF30-8D66-4B81-B781-50AE2B9D4241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C02EF30-8D66-4B81-B781-50AE2B9D4241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C02EF30-8D66-4B81-B781-50AE2B9D4241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C02EF30-8D66-4B81-B781-50AE2B9D4241}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

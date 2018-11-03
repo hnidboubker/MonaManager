@@ -208,84 +208,52 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
-    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
-    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
-    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Contracts\ContactRepository.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\DataContext.cs" />
-    <Compile Include="Data\DefaultContext.cs" />
-    <Compile Include="Common\FormattedDbEntityValidationException.cs" />
-    <Compile Include="Data\EntityContext.cs" />
-    <Compile Include="Entities\Contact.cs" />
-    <Compile Include="Entities\ContactType.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\CodeGeneratorHelper.cs" />
-    <Compile Include="Infrastructure\EntityContextFactory.cs" />
-    <Compile Include="Infrastructure\EntityRepository.cs" />
-    <Compile Include="Infrastructure\EntityService.cs" />
-    <Compile Include="Infrastructure\IEntity.cs" />
-    <Compile Include="Infrastructure\IRepository.cs" />
-    <Compile Include="Infrastructure\Service.cs" />
-    <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201705161137525_MigrationStart.cs" />
-    <Compile Include="Migrations\201705161137525_MigrationStart.Designer.cs">
-      <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\ContactProvider.cs" />
-    <Compile Include="Services\ContactService.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\Contacts\ContactAddOrUpdateModel.cs" />
-    <Compile Include="ViewModels\Contacts\ContactDeleteOrDetailsModel.cs" />
-    <Compile Include="ViewModels\Contacts\ContactModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Assets\elements\badges.css" />
+    <Content Include="Assets\elements\boxes.css" />
+    <Content Include="Assets\elements\buttons.css" />
+    <Content Include="Assets\elements\calendars.css" />
+    <Content Include="Assets\elements\navs.css" />
+    <Content Include="Assets\elements\panels.css" />
+    <Content Include="Assets\elements\tables.css" />
+    <Content Include="Assets\elements\timelines.css" />
     <Content Include="Assets\plugging\boot\css\bootstrap-theme.css" />
     <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css.map" />
     <Content Include="Assets\plugging\boot\css\bootstrap.css" />
     <Content Include="Assets\plugging\boot\css\bootstrap.min.css" />
+    <Content Include="Assets\plugging\boot\css\bootstrap.min.css.map" />
     <Content Include="Assets\plugging\boot\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\plugging\boot\js\bootstrap.js" />
     <Content Include="Assets\plugging\boot\js\bootstrap.min.js" />
+    <Content Include="Assets\plugging\fa\css\font-awesome.css" />
+    <Content Include="Assets\plugging\fa\css\font-awesome.min.css" />
+    <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\plugging\ionics\fonts\ionicons.svg" />
     <Content Include="Assets\imgs\persons\default_profile.png" />
+    <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\plugging\fa\fonts\FontAwesome.otf" />
     <None Include="Assets\plugging\jq\js\jquery-3.1.1.intellisense.js" />
+    <Content Include="Assets\plugging\ionics\ionicons\css\ionicons.css" />
     <Content Include="Assets\plugging\jq\js\jquery-3.1.1.js" />
     <Content Include="Assets\plugging\jq\js\jquery-3.1.1.min.js" />
     <Content Include="Assets\plugging\jq\js\jquery-3.1.1.slim.js" />
     <Content Include="Assets\plugging\jq\js\jquery-3.1.1.slim.min.js" />
+    <Content Include="Assets\plugging\ko\js\knockout-3.4.2.debug.js" />
+    <Content Include="Assets\plugging\ko\js\knockout-3.4.2.js" />
+    <Content Include="Assets\plugging\ko\js\knockout.validation.js" />
+    <Content Include="Assets\plugging\ko\js\knockout.validation.min.js" />
     <Content Include="Assets\plugging\mo\modernizr-2.8.3.js" />
     <Content Include="Assets\plugging\res\respond.js" />
     <Content Include="Assets\plugging\res\respond.matchmedia.addListener.js" />
@@ -293,46 +261,17 @@
     <Content Include="Assets\plugging\res\respond.min.js" />
     <Content Include="Assets\plugging\sam\sammy-0.7.5.js" />
     <Content Include="Assets\plugging\sam\sammy-0.7.5.min.js" />
-   
+    <Content Include="Assets\mona\base.css" />
+    <Content Include="Assets\mona\layout.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\ionicons.svg" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Areas\HelpPage\Views\Web.config" />
-    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Content\ionicons\ionicons.less" />
     <Content Include="Content\ionicons\_ionicons-variables.less" />
     <Content Include="Content\ionicons\_ionicons-icons.less" />
@@ -341,9 +280,7 @@
     <Content Include="Content\fonts\ionicons.ttf" />
     <Content Include="Content\fonts\ionicons.eot" />
     <Content Include="Assets\plugging\boot\css\bootstrap-theme.css.map" />
-    <Content Include="Assets\plugging\boot\css\bootstrap-theme.min.css.map" />
     <Content Include="Assets\plugging\boot\css\bootstrap.css.map" />
-    <Content Include="Assets\plugging\boot\css\bootstrap.min.css.map" />
     <Content Include="Assets\plugging\ionics\fonts\ionicons.eot" />
     <Content Include="Assets\plugging\ionics\fonts\ionicons.ttf" />
     <Content Include="Assets\plugging\ionics\fonts\ionicons.woff" />
@@ -380,19 +317,50 @@
     <Content Include="Views\Contacts\Details.cshtml" />
     <Content Include="Views\Contacts\Edit.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Assets\plugging\ko\js\knockout.validation.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\css\" />
-    <Folder Include="ViewModels\Customers\" />
+    <Folder Include="Assets\themes\" />
+    <Folder Include="Assets\vendors\" />
+    <Folder Include="Assets\widgets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705161137525_MigrationStart.resx">
-      <DependentUpon>201705161137525_MigrationStart.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\..\..\Server\Common\Mona.Server.Common\Mona.Server.Common.csproj">
+      <Project>{a39e8eb1-97b8-4aab-a7b8-e3ed3e22b4c7}</Project>
+      <Name>Mona.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Contracts\Mona.Server.Contract\Mona.Server.Contract.csproj">
+      <Project>{ddf2507a-6f13-4ac4-abf1-927f95e3eddd}</Project>
+      <Name>Mona.Server.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Core\Mona.Server.Configuration\Mona.Server.Configuration.csproj">
+      <Project>{8bbaf64b-ec27-4153-9fbf-e7f9d8da558d}</Project>
+      <Name>Mona.Server.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Core\Mona.Server.Data\Mona.Server.Data.csproj">
+      <Project>{17328b2a-d7f8-4284-9848-9d5c4a8b4de3}</Project>
+      <Name>Mona.Server.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Core\Mona.Server.Domain\Mona.Server.Domain.csproj">
+      <Project>{59876aac-6a88-4ab4-9754-a15475f52aa2}</Project>
+      <Name>Mona.Server.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Core\Mona.Server.Infrastructure\Mona.Server.Infrastructure.csproj">
+      <Project>{46020b5a-76de-4a52-9237-ce0b81775cbc}</Project>
+      <Name>Mona.Server.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Server\Services\Mona.Server.Services\Mona.Server.Services.csproj">
+      <Project>{e8d7d9d6-e673-44d7-be99-a3d810a106ed}</Project>
+      <Name>Mona.Server.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Mona.Web.Core\Mona.Web.Core.csproj">
+      <Project>{6c02ef30-8d66-4b81-b781-50ae2b9d4241}</Project>
+      <Name>Mona.Web.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

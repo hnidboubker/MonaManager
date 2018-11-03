@@ -78,7 +78,10 @@ namespace Mona.Web
 
 
             bundles.Add(new StyleBundle("~/Assets/vendors")
-                .IncludeDirectory( "~/Assets/plugging/boot/css","bootstrap.css"));
+                .IncludeDirectory( "~/Assets/plugging/boot/css/","bootstrap.css")
+                .IncludeDirectory("~/Assets/plugging/ionics/ionicons/css/", "ionicons.css")
+                 .IncludeDirectory("~/Assets/plugging/fa/css/", "font-awesome.css")
+                );
         }
     }
 }

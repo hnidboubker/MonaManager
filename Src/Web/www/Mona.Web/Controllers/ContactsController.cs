@@ -5,8 +5,9 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Mona.Web.Providers;
-using Mona.Web.ViewModels.Contacts;
+using Mona.Web.Core.Providers;
+using Mona.Web.Core.ViewModels.Contacts;
+
 
 namespace Mona.Web.Controllers
 {
