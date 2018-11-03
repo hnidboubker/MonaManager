@@ -237,6 +237,8 @@
     <Content Include="Assets\plugging\fa\css\font-awesome.css" />
     <Content Include="Assets\plugging\fa\css\font-awesome.min.css" />
     <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\plugging\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\plugging\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\plugging\ionics\fonts\ionicons.svg" />
     <Content Include="Assets\imgs\persons\default_profile.png" />
     <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.eot" />
@@ -244,6 +246,15 @@
     <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.woff" />
     <Content Include="Assets\plugging\fa\fonts\fontawesome-webfont.woff2" />
     <Content Include="Assets\plugging\fa\fonts\FontAwesome.otf" />
+    <Content Include="Assets\plugging\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\plugging\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\plugging\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\plugging\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\plugging\fonts\FontAwesome.otf" />
+    <Content Include="Assets\plugging\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\plugging\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\plugging\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\plugging\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Assets\plugging\jq\js\jquery-3.1.1.intellisense.js" />
     <Content Include="Assets\plugging\ionics\ionicons\css\ionicons.css" />
     <Content Include="Assets\plugging\jq\js\jquery-3.1.1.js" />
