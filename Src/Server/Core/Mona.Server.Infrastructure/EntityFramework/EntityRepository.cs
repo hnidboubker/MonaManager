@@ -34,8 +34,9 @@ namespace Mona.Server.Infrastructure.EntityFramework
             return entity;
         }
 
-       
 
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly")]
         public override void Dispose()
         {
             Dispose(true);

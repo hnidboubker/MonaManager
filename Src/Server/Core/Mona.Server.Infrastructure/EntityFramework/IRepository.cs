@@ -44,6 +44,7 @@ namespace Mona.Server.Infrastructure.EntityFramework
             get { return Context ?? (Context = EntityContextFactory.Get()); }
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly")]
         public abstract void Dispose();
 
         public virtual IQueryable<T> GetQuery
@@ -130,6 +131,7 @@ namespace Mona.Server.Infrastructure.EntityFramework
         }
 
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly")]
         public abstract void Dispose(bool disposing);
     }
 }
