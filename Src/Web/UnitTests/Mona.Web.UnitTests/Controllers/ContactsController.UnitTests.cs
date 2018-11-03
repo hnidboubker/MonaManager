@@ -7,7 +7,7 @@ namespace Mona.Web.UnitTests.Controllers
     public class ContactsControllerUnitTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethod1On()
         {
         }
     }
