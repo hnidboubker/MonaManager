@@ -57,7 +57,7 @@ namespace Mona.Server.Data.Common
             }
         }
 
-        private static object GetComplexPropertyValue(DbPropertyValues propertyValues, string[] propertyChain)
+        public static object GetComplexPropertyValue(DbPropertyValues propertyValues, string[] propertyChain)
         {
             string propertyName = propertyChain.First();
             return propertyChain.Count() == 1

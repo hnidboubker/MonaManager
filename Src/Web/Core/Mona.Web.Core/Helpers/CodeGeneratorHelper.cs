@@ -8,7 +8,7 @@ namespace Mona.Web.Core.Helpers
 {
     public class CodeGeneratorHelper
     {
-        private static readonly Random random = new Random();
+        private static readonly Random Random = new Random();
 
         public static int GenerateCode()
         {
@@ -52,7 +52,7 @@ namespace Mona.Web.Core.Helpers
                 // May strike a duplicate.
                 // Need to add +1 to make inclusive generator
                 // +1 is safe even for MaxVal max value because top < max
-                if (!candidates.Add(random.Next(min, top + 1)))
+                if (!candidates.Add(Random.Next(min, top + 1)))
                 {
                     // collision, add inclusive max.
                     // which could not possibly have been added before.
@@ -68,7 +68,7 @@ namespace Mona.Web.Core.Helpers
             // random-ordered results (e.g. max-1 will never be the first value)
             for (int i = result.Count - 1; i > 0; i--)
             {
-                int k = random.Next(i + 1);
+                int k = Random.Next(i + 1);
                 int tmp = result[k];
                 result[k] = result[i];
                 result[i] = tmp;
