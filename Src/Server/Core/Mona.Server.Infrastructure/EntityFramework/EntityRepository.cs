@@ -11,7 +11,7 @@ namespace Mona.Server.Infrastructure.EntityFramework
     public class EntityRepository<T> : Repository<T, long>, IEntityRepository<T> where T : class, IEntity<long>
     {
         
-        private  bool _disposed;
+        private readonly bool _disposed;
 
         
 
